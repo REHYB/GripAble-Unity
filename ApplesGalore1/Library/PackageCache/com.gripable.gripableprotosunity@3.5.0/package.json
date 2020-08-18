@@ -1,0 +1,17 @@
+{
+  "name": "com.gripable.gripableprotosunity",
+  "displayName": "Gripable Protos",
+  "description": "Generated Gripable Protos \n Supported Platforms:\n  -Android",
+  "version": "3.5.0",
+  "gitTagMsg": "release 3.5.0",
+  "unity": "2018.3",
+  "license": "",
+  "repository": {
+    "type": "git",
+    "url": "git+https://bitbucket.org/gripable/gripable_protos.git"
+  },
+  "src": "GripableProtos/Assets/GripableProtosUnity",
+  "resources": "GripableProtos/Assets/GripableProtosResources",
+  "author": "GripAble <email>",
+  "dependencies": {}
+}
