@@ -81,10 +81,14 @@
     <Compile Include="Assets\PaintIcons\CircleTimer.cs" />
     <Compile Include="Assets\PaintIcons\Climber.cs" />
     <Compile Include="Assets\PaintIcons\Glove.cs" />
+    <Compile Include="Assets\PaintIcons\InputID.cs" />
+    <Compile Include="Assets\PaintIcons\InputIDApply.cs" />
     <Compile Include="Assets\PaintIcons\Instructions.cs" />
     <Compile Include="Assets\PaintIcons\NoButtonSelect.cs" />
     <Compile Include="Assets\PaintIcons\PaintGame.cs" />
     <Compile Include="Assets\PaintIcons\PushButton.cs" />
+    <Compile Include="Assets\PaintIcons\ResearchInfo.cs" />
+    <Compile Include="Assets\PaintIcons\Save.cs" />
     <Compile Include="Assets\PaintIcons\YesButtonSelect.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01_UGUI.cs" />

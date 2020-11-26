@@ -15,13 +15,12 @@ public class PaintGame : MonoBehaviour {
     //Program State = RelaxYes - check that mouse is low and centred - relax instruction
     //Program State = Yes - check that mouse is high
     //Program State = Success - Explode apples and wait N seconds - go to Relax1
-    //COPY AND PASTE THE FOLLOWING FORCE CALIBRATION INTO Player.cs > Connect
-      /* GripablePlugin.Player.SetCalibration(
-       new Calibration { Min = 0, Max = 10, Type = MovementType.Grip},
-       new Calibration { Min = 315, Max = 60, Type = MovementType.Roll },
-       new Calibration { Min = 345, Max = 40, Type = MovementType.Pitch },
-       new Calibration { Min = 310, Max = 30, Type = MovementType.Yaw },
-       0.4f); */
+    //COPY AND PASTE THE FOLLOWING FORCE CALIBRATION INTO Gripable BLE > Plugins > Src > Runtime> Player.cs > Connect
+            //GripablePlugin.Player.SetCalibration(
+            //new Calibration { Min = 0, Max = 70, Type = MovementType.Grip},
+            //new Calibration { Min = 315, Max = 60, Type = MovementType.Roll },
+            //new Calibration { Min = 345, Max = 40, Type = MovementType.Pitch },
+            //new Calibration { Min = 310, Max = 30, Type = MovementType.Yaw }, 0.4f);
     //Find MAC Address – open gripable app - ||| - support – terms & privacy – double tap bottom right corner
 
     public Transform climber;
@@ -29,12 +28,13 @@ public class PaintGame : MonoBehaviour {
     public Texture2D cursor;
 
     public static int applesToGrab = 0;
-    public static float climberPositionMin = -5.5f; // -5.5f ground
-    public static float climberPositionMax = 2f; // maximum voluntary contraction scalar
+    public static float climberPositionMin = -6.5f; // -5.5f ground
+    public static float climberPositionMax = 1f; // maximum voluntary contraction scalar
+    public static float climberMaxX = 2; // maximum voluntary contraction scalar
     public static float climberPosition = climberPositionMin;
-    public static int challengeHeight = 0;
+    public static float challengeHeight = 0;
     public static bool climberPositionLocked = true;
-    public static string programState = "RelaxCal";
+    public static string programState = "Settings";//"RelaxCal"
     public static bool destroyApples = false;
     public static bool yesSelected = false;
     public static bool noSelected = false;
@@ -45,16 +45,28 @@ public class PaintGame : MonoBehaviour {
     public static float secondsStart = 0;
     public static string instruction = "";
     public static int reps = 0;
-    public static float mvc = 1; // maximum voluntary contraction scalar // normalize to user
+    public static float mvc = 1f; // maximum voluntary contraction scalar // normalize to user
     public static Color climberColor = Color.grey;
     public static Color yesButtonColor = Color.grey;
     public static Color noButtonColor = Color.grey;
     public static float climberForce = 0;
-    public static float[] mvcCal = {0, 0, 0, 0, 0};
     public static float selectAngle = 0;
+    public static float selectAngleMax = 0.2f;
     public static Vector2 glovePosition = new Vector2 (0.8f, -6.2f);
     public static Color gloveColor = new Color(1, 1, 1, 0);
-    public static string macAddress = "F2:78:BD:C2:0B:9D";
+    public static string macAddress = "F9:05:C0:6D:B2:C2";//:Aaron1: CA:49:AB:EF:4A:17 Leeza1: D5:B2:37:4A:C8:5E Leeza2: F9:05:C0:6D:B2:C2
+    public static int maxReps = 36;
+    public static int maxCalibReps = 5; // if you change this you need to change Save.cs
+    public static float[] mvcCal = new float[maxCalibReps];
+    public static string noFailYes = "3";
+    public static bool applyUserID = false;
+    public static string userID = "notAvailable";
+    public static float force = 0;
+    public static float forceMin = 0.01f;
+    int applesToGrabIncrement = 0;
+    int challengeHeightIncrement = 5;
+    int[] applesToGrabArray = { 4, 6, 3, 5, 1, 2, 2, 1, 5, 6, 3, 4, 1, 3, 2, 4, 5, 6, 2, 3, 1, 4, 5, 6, 5, 1, 6, 4, 3, 2, 2, 6, 5, 4, 1, 3 };
+    float[] challengeHeightArray = { 2, 4, 6, 1, 3, 5, 1, 5, 3, 6, 2, 4, 1, 4, 3, 6, 5, 2, 4, 5, 2, 1, 6, 3, 2, 4, 5, 3, 1, 6, 2, 1, 4, 5, 6, 3 };
 
     void Start() {
         GripablePlugin.Player.SetDevice(macAddress); //CA:49:AB:EF:4A:17
@@ -65,28 +77,20 @@ public class PaintGame : MonoBehaviour {
         Vector2 objPosition = new Vector2(0.0f, 0.0f);
 
     void Update() {
-        //    macAddress = "CA:49:AB:EF:4A:17";
-        //    if (PlayerPrefs.GetString(macAddress) != "" && GripablePlugin.Player.IsInitialized() == false) {
-        //        GripablePlugin.Player.SetDevice(macAddress); //CA:49:AB:EF:4A:17
-        //        GripablePlugin.Player.Connect();
-        //    }
-        //    else if (PlayerPrefs.GetString(macAddress) !=)
-        //        PlayerPrefs.Save(); }
-        //        PlayerPrefs.SetString(macAddress, macAddress);
-        //    }
-
         instruction = " update ";
         if (GripablePlugin.Player.IsInitialized()) {
-            instruction = " initialized ";
-            climberForce = GripablePlugin.Player.GetGripForce() * mvc * (climberPositionMax - climberPositionMin) + climberPositionMin;
+            instruction = " initializing ";
+            force = GripablePlugin.Player.GetGripForce();
+            climberForce = force * (1/mvc) * (climberPositionMax - climberPositionMin) + climberPositionMin;
             instruction = " force ";
             selectAngle = GripablePlugin.Player.GetYaw();// + GripablePlugin.Player.GetRoll() + GripablePlugin.Player.GetPitch();
             instruction = " yaw ";
+            instruction = " ready ";
         }
         //score = (int)(selectAngle*100);
         //mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition); // change climberForce to mousepostion below for Gripable-less game
         Cursor.SetCursor(cursor, new Vector2(climberForce, -5.8f), CursorMode.Auto);
-        if (reps>40) { //  36 game reps complete
+        if (reps>=(maxReps + maxCalibReps)) { //  36 game reps complete
             instruction = "Nice Work!";
         }
 
@@ -97,20 +101,18 @@ public class PaintGame : MonoBehaviour {
             secondsStart = secondsStart + Time.deltaTime;
             instruction = "Relax Hand";
             GripablePlugin.Player.ResetWristRpy();
-            if (climberForce > climberPositionMax) { climberPosition = climberPositionMax; }
-            else if (climberForce < climberPositionMin) { climberPosition = climberPositionMin; }
+            if (climberForce > climberPositionMax + climberMaxX) { climberPosition = climberPositionMax + climberMaxX; }
             else { climberPosition = climberForce; }
-            if (secondsStart > (waitTime) && climberForce < -4.5) {
-                if (reps < 5) {
+            if (secondsStart > (waitTime) && force < forceMin) {
+                if (reps < maxCalibReps) {
                     programState = "SqueezeCal";
                 }
                 else {
                     Array.Sort(mvcCal);
-                    mvc = 1/mvcCal[2];
+                    mvc = mvcCal[(int)Mathf.Floor(maxCalibReps/2f)];
                     programState = "RelaxSelect";
                 }
                 secondsStart = 0;
-                //save relax value
             }
         }
 
@@ -121,10 +123,9 @@ public class PaintGame : MonoBehaviour {
             secondsStart = secondsStart + Time.deltaTime;
             instruction = "Squeeze Tight";
             mvcCal[reps] = Mathf.Max(mvcCal[reps], GripablePlugin.Player.GetGripForce());
-            if (climberForce > climberPositionMax) { climberPosition = climberPositionMax; }
-            else if (climberForce < climberPositionMin) { climberPosition = climberPositionMin; }
+            if (climberForce > climberPositionMax + climberMaxX) { climberPosition = climberPositionMax + climberMaxX; }
             else { climberPosition = climberForce; }
-            if (secondsStart > (waitTime) && climberForce > -4.5) {
+            if (secondsStart > (waitTime) && force > 0.01) {
                 programState = "RelaxCal";
                 secondsStart = 0;
                 reps++;
@@ -138,7 +139,7 @@ public class PaintGame : MonoBehaviour {
             gloveColor = new Color(1, 1, 1, 1);
             climberColor = Color.grey;
             instruction = "Centre Glove";
-            if (selectAngle > -0.2 && selectAngle < 0.2) {
+            if (selectAngle > -selectAngleMax && selectAngle < selectAngleMax) {
                 programState = "GenerateApples";
                 secondsStart = 0;
             }
@@ -149,11 +150,12 @@ public class PaintGame : MonoBehaviour {
             glovePosition = new Vector2(0.8f + selectAngle * -5, -6.2f);
             gloveColor = new Color(1, 1, 1, 1);
             climberColor = Color.grey;
-            applesToGrab = UnityEngine.Random.Range(1, 5);
-            challengeHeight = UnityEngine.Random.Range(-1, 3);
+            applesToGrab = applesToGrabArray[applesToGrabIncrement];//(1,5)
+            challengeHeight = ((challengeHeightArray[applesToGrabIncrement]+5)*0.1f) * (climberPositionMax- climberPositionMin)+ climberPositionMin;
+            applesToGrabIncrement++;
             destroyApples = false;
             for (int i = 0; i < applesToGrab; i++) {
-                objPosition = new Vector2(2f * (0.5f + i - (float)applesToGrab / 2), challengeHeight);
+                objPosition = new Vector2(1f * (0.5f + i - (float)applesToGrab / 2), challengeHeight + 2.4f);
                 Instantiate(apple, objPosition, apple.rotation);
             }
             programState = "Select";
@@ -186,10 +188,9 @@ public class PaintGame : MonoBehaviour {
             yesButtonColor = Color.grey;
             noButtonColor = yesButtonColor;
             instruction = "Relax Hand";
-            if (climberForce > climberPositionMax) { climberPosition = climberPositionMax; }
-            else if (climberForce < climberPositionMin) { climberPosition = climberPositionMin; }
+            if (climberForce > climberPositionMax+ climberMaxX) { climberPosition = climberPositionMax+ climberMaxX; }
             else { climberPosition = climberForce; }
-            if (climberForce < -4.5) {
+            if (force < forceMin) {
                 programState = "Yes";
                 secondsStart = 0;
             }
@@ -197,25 +198,32 @@ public class PaintGame : MonoBehaviour {
 
         else if (programState.Equals("Yes")) {
             secondsStart = secondsStart + Time.deltaTime;
-            if ((secondsStart> waitTime) || (climberPosition >= (challengeHeight - 2))) {
-                if (climberPosition >= (challengeHeight - 2)) {
-                    score = score + applesToGrab;
-                }
+            if (secondsStart > waitTime){
                 destroyApples = true;
                 climberPosition = climberPositionMin;
+                noFailYes = "1"; //YesTimeout
+                programState = "RelaxSelect";
+                reps++;
+            }
+            else if (climberPosition >= challengeHeight) {
+                score = score + applesToGrab;
+                destroyApples = true;
+                climberPosition = climberPositionMin;
+                noFailYes = "2"; //YesGrabbed
                 programState = "RelaxSelect";
                 reps++;
             }
             else if (destroyApples == false) {
                 instruction = "Squeeze Tight";
-                if (climberForce > climberPositionMax) { climberPosition = climberPositionMax; }
-                else if (climberForce < climberPositionMin) { climberPosition = climberPositionMin; }
+                if (climberForce > climberPositionMax + climberMaxX) { climberPosition = climberPositionMax + climberMaxX; }
                 else { climberPosition = climberForce; }
             }
         }
     }
 
     IEnumerator ExecuteAfterTime(float time) {
+        yesButtonColor = Color.grey;
+        noButtonColor = yesButtonColor;
         instruction = "Relax Hand";
         secondsStart = secondsStart + Time.deltaTime;
         climberPosition = climberPositionMin;
@@ -224,8 +232,11 @@ public class PaintGame : MonoBehaviour {
         noSelected = false;
         climberPositionLocked = true;
         instantiateApples = true;
+        noFailYes = "0"; //No
+        Save.SaveSimpleData();
         programState = "RelaxSelect";
         reps++;
         StopCoroutine("ExecuteAfterTime");
     }
 }
+

@@ -11,7 +11,7 @@ public class Climber : MonoBehaviour
 
     // Update is called once per frame
     void Update() {
-        transform.position = new Vector2(0, PaintGame.climberPosition);
+        transform.position = new Vector2(0, PaintGame.climberPosition); //-1.8f between 
         GetComponent<SpriteRenderer>().color = PaintGame.climberColor;
 
         //    if (PaintGame.programState.Contains("select")) {

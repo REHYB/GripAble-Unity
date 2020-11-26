@@ -6,9 +6,13 @@ ScriptsOnlyBuild:
     - CircleTimer
     - Climber
     - Glove
+    - InputID
+    - InputIDApply
     - Instructions
     - NoButtonSelect
     - PaintGame
+    - ResearchInfo
+    - Save
     - YesButtonSelect
     Unity.2D.Animation.Editor.dll:
     - UnityEditor.U2D.Animation.BoneGizmo
@@ -23,10 +27,12 @@ ScriptsOnlyBuild:
     Unity.TextMeshPro.dll:
     - TMPro.TMP_ColorGradient
     - TMPro.TMP_FontAsset
+    - TMPro.TMP_InputField
     - TMPro.TMP_Settings
     - TMPro.TMP_SpriteAsset
     - TMPro.TMP_StyleSheet
     - TMPro.TextMeshPro
+    - TMPro.TextMeshProUGUI
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
     - UnityEditor.TestTools.TestRunner.TestListCacheData
@@ -42,6 +48,7 @@ ScriptsOnlyBuild:
     - UnityEngine.UI.Image
     - UnityEngine.UI.InputField
     - UnityEngine.UI.LayoutElement
+    - UnityEngine.UI.RectMask2D
     - UnityEngine.UI.Text
     - UnityEngine.UI.VerticalLayoutGroup
     com.gripable.gripable-ble-unity.dll:
@@ -79,65 +86,79 @@ ScriptsOnlyBuild:
     - Class: 109
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 11204}
-    - Class: 114
       Script: {instanceID: 11206}
     - Class: 114
       Script: {instanceID: 11208}
     - Class: 114
       Script: {instanceID: 11210}
     - Class: 114
-      Script: {instanceID: 11232}
+      Script: {instanceID: 11212}
     - Class: 114
-      Script: {instanceID: 11546}
+      Script: {instanceID: 11236}
     - Class: 114
-      Script: {instanceID: 11776}
+      Script: {instanceID: 11370}
     - Class: 114
-      Script: {instanceID: 11796}
+      Script: {instanceID: 11514}
     - Class: 114
-      Script: {instanceID: 11818}
+      Script: {instanceID: 11554}
     - Class: 114
-      Script: {instanceID: 12286}
+      Script: {instanceID: 11660}
     - Class: 114
-      Script: {instanceID: 12340}
+      Script: {instanceID: 11784}
     - Class: 114
-      Script: {instanceID: 12414}
+      Script: {instanceID: 11804}
     - Class: 114
-      Script: {instanceID: 12448}
+      Script: {instanceID: 11826}
     - Class: 114
-      Script: {instanceID: 13344}
+      Script: {instanceID: 11946}
     - Class: 114
-      Script: {instanceID: 13402}
+      Script: {instanceID: 12260}
     - Class: 114
-      Script: {instanceID: 13408}
+      Script: {instanceID: 12296}
     - Class: 114
-      Script: {instanceID: 13426}
+      Script: {instanceID: 12350}
     - Class: 114
-      Script: {instanceID: 13594}
+      Script: {instanceID: 12424}
     - Class: 114
-      Script: {instanceID: 13852}
+      Script: {instanceID: 12458}
     - Class: 114
-      Script: {instanceID: 13866}
+      Script: {instanceID: 12566}
     - Class: 114
-      Script: {instanceID: 13924}
+      Script: {instanceID: 13356}
+    - Class: 114
+      Script: {instanceID: 13414}
+    - Class: 114
+      Script: {instanceID: 13420}
+    - Class: 114
+      Script: {instanceID: 13438}
+    - Class: 114
+      Script: {instanceID: 13606}
+    - Class: 114
+      Script: {instanceID: 13768}
+    - Class: 114
+      Script: {instanceID: 13864}
+    - Class: 114
+      Script: {instanceID: 13878}
     - Class: 114
       Script: {instanceID: 13936}
     - Class: 114
-      Script: {instanceID: 14156}
+      Script: {instanceID: 13948}
     - Class: 114
-      Script: {instanceID: 14174}
+      Script: {instanceID: 14168}
     - Class: 114
-      Script: {instanceID: 14346}
+      Script: {instanceID: 14186}
     - Class: 114
-      Script: {instanceID: 14354}
+      Script: {instanceID: 14358}
     - Class: 114
-      Script: {instanceID: 14374}
+      Script: {instanceID: 14366}
     - Class: 114
-      Script: {instanceID: 14474}
+      Script: {instanceID: 14386}
     - Class: 114
-      Script: {instanceID: 14532}
+      Script: {instanceID: 14486}
     - Class: 114
-      Script: {instanceID: 14628}
+      Script: {instanceID: 14544}
+    - Class: 114
+      Script: {instanceID: 14640}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -217,6 +238,12 @@ ScriptsOnlyBuild:
     className: TMP_Dropdown
   - hash:
       serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Save
+  - hash:
+      serializedVersion: 2
       Hash: e7a73f5f78ba6445195ec23b74a1ce2d
     assemblyName: Unity.TextMeshPro.dll
     namespaceName: TMPro
@@ -239,6 +266,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: GroupTrack
+  - hash:
+      serializedVersion: 2
+      Hash: 3f94200a63b7962954d0791c4347f4dc
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: InputIDApply
   - hash:
       serializedVersion: 2
       Hash: a5781dc71a671b1ad2b38de19f24b71f
@@ -403,6 +436,12 @@ ScriptsOnlyBuild:
     className: Benchmark03
   - hash:
       serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: ResearchInfo
+  - hash:
+      serializedVersion: 2
       Hash: e6f0efd0e20669d577e9d21526b3d3f9
     assemblyName: Assembly-CSharp.dll
     namespaceName: TMPro.Examples
@@ -485,6 +524,12 @@ ScriptsOnlyBuild:
     assemblyName: com.gripable.gripable-ble-unity.dll
     namespaceName: 
     className: DebugPanel
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: InputID
   - hash:
       serializedVersion: 2
       Hash: b3ab2106268377ffe25dd18ac23dca28
@@ -968,4 +1013,4 @@ ScriptsOnlyBuild:
   platform: 13
   scenePathNames:
   - Assets/Scenes/SampleScene.unity
-  playerPath: /Users/ayurkewi/UnityGames/ApplesGalore1/ApplesGaloreAndroidF278.apk
+  playerPath: /Users/ayurkewi/UnityGames/GripAble-Unity/ApplesGalore1/ApplesGalore-2020-10-07-F905.apk
