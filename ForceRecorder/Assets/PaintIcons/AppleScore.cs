@@ -12,6 +12,6 @@ public class AppleScore : MonoBehaviour
     // Update is called once per frame
     void Update()  {
         TextMeshPro textmeshPro = GetComponent<TextMeshPro>();
-        textmeshPro.SetText("" + PaintGame.force.ToString("F2"));
+        textmeshPro.SetText("" + PaintGame.force.ToString("F3"));
     }
 }

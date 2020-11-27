@@ -1,12 +1,17 @@
 ﻿<Properties StartupConfiguration="{59E00F49-4FDB-9FC1-323A-D99D5BC5AC84}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/PaintIcons/PaintGame.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/PaintIcons/AppleScore.cs">
     <Files>
-      <File FileName="Assets/PaintIcons/PaintGame.cs" Line="102" Column="24" />
-      <File FileName="Library/PackageCache/com.gripable.gripable-ble-unity@4.1.0/Src/Runtime/Player.cs" Line="210" Column="43" />
+      <File FileName="Assets/PaintIcons/PaintGame.cs" Line="17" Column="34" />
+      <File FileName="Library/PackageCache/com.gripable.gripable-ble-unity@4.1.0/Src/Runtime/Player.cs" Line="211" Column="14" />
       <File FileName="Assets/PaintIcons/Save.cs" Line="47" Column="6" />
-      <File FileName="Assets/PaintIcons/AppleScore.cs" />
+      <File FileName="Assets/PaintIcons/AppleScore.cs" Line="18" Column="1" />
       <File FileName="Assets/PaintIcons/Apple.cs" />
       <File FileName="Assets/PaintIcons/Climber.cs" />
+      <File FileName="Assets/PaintIcons/ResearchInfo.cs" Line="1" Column="1" />
+      <File FileName="Assets/PaintIcons/PushButton.cs" Line="1" Column="1" />
+      <File FileName="Assets/PaintIcons/Instructions.cs" Line="1" Column="1" />
+      <File FileName="Assets/PaintIcons/NoButtonSelect.cs" Line="1" Column="1" />
+      <File FileName="Assets/PaintIcons/YesButtonSelect.cs" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -14,7 +19,7 @@
           <Node name="ForceRecorder" expanded="True">
             <Node name="Assets" expanded="True">
               <Node name="PaintIcons" expanded="True">
-                <Node name="PaintGame.cs" selected="True" />
+                <Node name="AppleScore.cs" selected="True" />
               </Node>
             </Node>
           </Node>
@@ -24,7 +29,7 @@
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="a5958cda-f3a0-41c7-83ea-4f264e22850d" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="274d6036-0eb7-407d-bfb9-a1bfce46a97e" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
