@@ -22,6 +22,8 @@ public class YesButtonSelect : MonoBehaviour
     }
 
     void OnMouseDown() {
-        //PaintGame.yesSelected = true;
+        if (PaintGame.programState.Equals("Select")) {
+            PaintGame.programState = "RelaxYes";
+        }
     }
 }

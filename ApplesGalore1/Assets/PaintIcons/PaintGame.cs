@@ -83,7 +83,7 @@ public class PaintGame : MonoBehaviour {
             force = GripablePlugin.Player.GetGripForce();
             climberForce = force * (1/mvc) * (climberPositionMax - climberPositionMin) + climberPositionMin;
             instruction = " force ";
-            selectAngle = GripablePlugin.Player.GetYaw();// + GripablePlugin.Player.GetRoll() + GripablePlugin.Player.GetPitch();
+            selectAngle = GripablePlugin.Player.GetRoll();// + GripablePlugin.Player.GetRoll() + GripablePlugin.Player.GetPitch();
             instruction = " yaw ";
             instruction = " ready ";
         }

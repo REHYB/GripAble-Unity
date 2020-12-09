@@ -22,6 +22,8 @@ public class NoButtonSelect : MonoBehaviour
     }
 
     private void OnMouseDown() {
-       // PaintGame.noSelected = true;
+        if (PaintGame.programState.Equals("Select")) {
+            PaintGame.programState = "No";
+        }
     }
 }
