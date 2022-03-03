@@ -19,6 +19,12 @@ public class InputIDButton : MonoBehaviour
     }
 
     void Update()  {
+        if (PaintGame.tapEnabled == false) {
+            yourButton.GetComponent<Image>().color = Color.gray;
+        }
+        else if (PaintGame.tapEnabled == true) {
+            yourButton.GetComponent<Image>().color = Color.green;
+        }
     }
 
     void TaskOnClick() {
@@ -26,7 +32,7 @@ public class InputIDButton : MonoBehaviour
             PaintGame.applyUserID = true;
             input.SetActive(false);
         }
-        else if (yourButton.GetComponent<Object>().name == "BTapMe") {
+        else if (yourButton.GetComponent<Object>().name == "BTapMe" && PaintGame.tapEnabled == true) {
             PaintGame.tapDetected = true;
         }
     }

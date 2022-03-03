@@ -74,7 +74,6 @@ public class PaintGame : MonoBehaviour {
     public static int repCounter = 0;
     public static float appleHeight = -4.1f;
     public static Color appleColor = Color.white;
-
     public static int stimCounter = 2;
     public static int forceCounter = 1;
     public static Color idButtonColor = Color.white;
@@ -111,7 +110,9 @@ public class PaintGame : MonoBehaviour {
     public static int tagDestroy = 0;
     static float m1 = climberPositionMax - climberPositionMin;
     static float m2 = climberPositionMin + 0.7f;
-    public static float[] appleHeightVector = new float[] { m2+m1*0/6, m2+m1*1/6, m2+m1*2/6, m2+m1*3/6, m2+m1*4/6, m2+m1*5/6, m2+m1*6/6 };
+    //public static float[] appleHeightVector = new float[] { m2+m1*0/6, m2+m1*1/6, m2+m1*2/6, m2+m1*3/6, m2+m1*4/6, m2+m1*5/6, m2+m1*6/6 };
+    public static float[] appleHeightVector = new float[] { m2+m1*2/6, m2+m1*2/6, m2+m1*2/6, m2+m1*4/6, m2+m1*4/6, m2+m1*4/6, m2+m1*6/6, m2+m1*6/6, m2+m1*6/6 };
+    public static int[] appleRewardVector = new int[] { 0, 1, 2, 0, 1, 2, 0, 1, 2 };
     public static int reward = 1;
     public static int challenge = 1;
     public static bool success = false;
@@ -127,37 +128,57 @@ public class PaintGame : MonoBehaviour {
     //public static int[] challengeBoneArray = new int[10000]; //1-6
     public static int[] targetHitArray = new int[10000];
     public static int repCount = 0;
-    public static int shuffleLength = 6*100; 
+    public static int rewardLevels = 3;
+    public static int challengeLevels = 3;
+    public static int rounds = 50;
+    public static int options = rewardLevels * challengeLevels;
+    public static int shuffleLength = options * rounds; 
     public static int[] challengeBoneArray = new int[shuffleLength];
     public static int[] rewardBoneArray = new int[shuffleLength];
+    public static int[] boneArray = new int[shuffleLength];
     public static int tempGO;
     public static bool decoyBone = false;
+    public static bool tapEnabled = true;
 
     void Start() {
         //rewardBoneArray[0] = 4; rewardBoneArray[1] = 2; rewardBoneArray[2] = 6;
         //challengeBoneArray[0] = 4; challengeBoneArray[1] = 2; challengeBoneArray[2] = 6;
         Shuffle();
     }
-     
+
     public void Shuffle() {
-        for (int i = 0; i < 100; i++) { 
-            for (int j = 0; j < 6; j++) {
-                challengeBoneArray[i*6+j] = j;
-                rewardBoneArray[i*6+j] = j;
+        for (int i = 0; i < rounds; i++) { 
+            for (int j = 0; j < options; j++) {
+                boneArray[i * options + j] = j;
+            }
+            //boneArray[0-8] = { 0 1 2 3 4 5 6 7 8 }
+            //boneArray[9-17] = { 0 1 2 3 4 5 6 7 8 }
+            for (int k = 0; k < options; k++) {
+                //int rnd = 0-8; //int rnd = 9-17
+                int rnd = UnityEngine.Random.Range(i * options + k, i * options + options);
+                //rnd = 4, tempGo = 4 //rnd = 12, tempGo = 3
+                tempGO = boneArray[rnd];
+                //boneArray[4] = 0, boneArray[12] = 0
+                boneArray[rnd] = boneArray[i * options + k];
+                //boneArray[0] = 4, boneArray[9] = 3
+                boneArray[i * options + k] = tempGO;
+                //if (i == 0) { Debug.Log(boneArray[i * options + k]); }
+                //Debug.Log(boneArray[i * options + k]);
             }
         }
-        for (int i = 0; i < challengeBoneArray.Length; i++) {
-            int rnd = UnityEngine.Random.Range(i, challengeBoneArray.Length);
-            tempGO = challengeBoneArray[rnd];
-            challengeBoneArray[rnd] = challengeBoneArray[i];
-            challengeBoneArray[i] = tempGO;
-        }
-        for (int i = 0; i < rewardBoneArray.Length; i++) {
-            int rnd = UnityEngine.Random.Range(i, rewardBoneArray.Length);
-            tempGO = rewardBoneArray[rnd];
-            rewardBoneArray[rnd] = rewardBoneArray[i];
-            rewardBoneArray[i] = tempGO;
-        }
+
+        //for (int i = 0; i < challengeBoneArray.Length; i++) {
+        //    int rnd = UnityEngine.Random.Range(i, challengeBoneArray.Length);
+        //    tempGO = challengeBoneArray[rnd];
+        //    challengeBoneArray[rnd] = challengeBoneArray[i];
+        //    challengeBoneArray[i] = tempGO;
+        //}
+        //for (int i = 0; i < rewardBoneArray.Length; i++) {
+        //    int rnd = UnityEngine.Random.Range(i, rewardBoneArray.Length);
+        //    tempGO = rewardBoneArray[rnd];
+        //    rewardBoneArray[rnd] = rewardBoneArray[i];
+        //    rewardBoneArray[i] = tempGO;
+        //}
     }
 
     void Update() {
@@ -180,26 +201,28 @@ public class PaintGame : MonoBehaviour {
         // Select bone height
         if (applyUserID == true && Time.time > (previousRespawn + respawnGap)) {
             previousRespawn = Time.time;
-            trials++;
             //training
-            if (trials <= 4) {
-                    reward = 1; // 1 to 6 bones
-                    appleHeight = appleHeightVector[trials];
-                    Instantiate(apple, new Vector3(14.5f, appleHeight, 0), Quaternion.identity);
-                    programStage = 1;
+            if (trials < 3) {
+                reward = appleRewardVector[trials]; // 1 to 6 bones
+                appleHeight = appleHeightVector[trials*3];
+                Instantiate(apple, new Vector3(14.5f, appleHeight, 0), Quaternion.identity);
+                programStage = 1;
             }
 
             //calibration
-            else if (trials > 4 && trials < 20) {
+            else if (trials >= 3 && trials < 19) {
                 if (trials % 2 == 0) {
-                    reward = 3; // 1 to 6 bones
+                    tapEnabled = true;
+                    reward = appleRewardVector[0]; // 1 to 6 bones
                     decoyBone = false;
-                    Instantiate(apple, new Vector3(14.5f, appleHeightVector[5], 0), Quaternion.identity);
+                    Instantiate(apple, new Vector3(14.5f, appleHeightVector[8], 0), Quaternion.identity);
                     programStage = 2;
                 }
                 else {
-                    decoyBone = true;
-                    Instantiate(apple, new Vector3(14.5f, appleHeightVector[0], 0), Quaternion.identity);
+                    // disable button
+                    tapEnabled = false;
+                    //decoyBone = true;
+                    //Instantiate(apple, new Vector3(14.5f, appleHeightVector[0], 0), Quaternion.identity);
                 }
             }
 
@@ -207,21 +230,23 @@ public class PaintGame : MonoBehaviour {
             else {
                 programStage = 4;
                 if (trials % 2 == 0) {
+                    tapEnabled = true;
                     //staircase algorithm is evil for data analysis
-                    appleHeight = appleHeightVector[challengeBoneArray[trials-20]+1]; 
+                    appleHeight = appleHeightVector[boneArray[trials-20]+1]; 
                     reward = rewardBoneArray[trials-20]+1;  
                     challengeBoneArray[repCount] = challenge;
                     decoyBone = false;
                     Instantiate(apple, new Vector3(14.5f, appleHeight, 0), Quaternion.identity);
-                    Instantiate(apple, new Vector3(14.5f, appleHeightVector[0], 0), Quaternion.identity);
+                    //Instantiate(apple, new Vector3(14.5f, appleHeightVector[0], 0), Quaternion.identity);
                     repCount++;
                 }
                 else {
-                    decoyBone = true;
-                    Instantiate(apple, new Vector3(14.5f, appleHeightVector[0], 0), Quaternion.identity);
+                    tapEnabled = false;
+                    //decoyBone = true;
+                    //Instantiate(apple, new Vector3(14.5f, appleHeightVector[0], 0), Quaternion.identity);
                 }
             }
-
+            trials++;
         }
     }
 }

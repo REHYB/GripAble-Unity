@@ -1,11 +1,11 @@
 ﻿<Properties StartupConfiguration="{F1012B8F-209D-B641-1DB1-59255015FFE1}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/PaintIcons/Scripts/Save.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/PaintIcons/Scripts/PaintGame.cs">
     <Files>
       <File FileName="Assets/PaintIcons/Scripts/Score.cs" Line="18" Column="42" />
-      <File FileName="Assets/PaintIcons/Scripts/PaintGame.cs" Line="219" Column="23" />
-      <File FileName="Assets/PaintIcons/Scripts/Apple.cs" />
+      <File FileName="Assets/PaintIcons/Scripts/PaintGame.cs" Line="213" Column="33" />
+      <File FileName="Assets/PaintIcons/Scripts/Apple.cs" Line="54" Column="32" />
       <File FileName="Assets/PaintIcons/Scripts/Save.cs" Line="57" Column="24" />
-      <File FileName="Assets/PaintIcons/Scripts/InputIDButton.cs" />
+      <File FileName="Assets/PaintIcons/Scripts/InputIDButton.cs" Line="27" Column="10" />
       <File FileName="Assets/PaintIcons/ScoreCount.cs" />
       <File FileName="Assets/PaintIcons/Scripts/Apple2.cs" />
       <File FileName="Assets/PaintIcons/Scripts/iconChange.cs" />
@@ -21,6 +21,7 @@
       <File FileName="Assets/PaintIcons/Scripts/InputUp.cs" />
       <File FileName="Assets/PaintIcons/Scripts/NoButtonSelect.cs" />
       <File FileName="Assets/PaintIcons/Scripts/ResearchInfo.cs" />
+      <File FileName="Assets/PaintIcons/Scripts/Apple3.cs" Line="32" Column="34" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -29,18 +30,21 @@
             <Node name="Assets" expanded="True">
               <Node name="PaintIcons" expanded="True">
                 <Node name="Scripts" expanded="True">
-                  <Node name="Save.cs" selected="True" />
+                  <Node name="PaintGame.cs" selected="True" />
                 </Node>
               </Node>
             </Node>
           </Node>
         </State>
       </Pad>
+      <Pad Id="MonoDevelop.Debugger.WatchPad">
+        <State />
+      </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="bcbdf5b0-06b3-43b4-baaa-63e018d287d5" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="40b196bf-a02a-4509-b0ba-155c30583015" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>

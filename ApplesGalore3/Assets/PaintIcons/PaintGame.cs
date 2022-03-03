@@ -70,7 +70,7 @@ public class PaintGame : MonoBehaviour {
     int challengeHeightIncrement = 5;
     int[] applesToGrabArray = { 4, 6, 3, 5, 1, 2, 2, 1, 5, 6, 3, 4, 1, 3, 2, 4, 5, 6, 2, 3, 1, 4, 5, 6, 5, 1, 6, 4, 3, 2, 2, 6, 5, 4, 1, 3 };
     float[] challengeHeightArray = { 2, 4, 6, 1, 3, 5, 1, 5, 3, 6, 2, 4, 1, 4, 3, 6, 5, 2, 4, 5, 2, 1, 6, 3, 2, 4, 5, 3, 1, 6, 2, 1, 4, 5, 6, 3 };
-    bool useGripable = true;
+    bool useGripable = false;
     bool init = false;
     public static int challengeForce = 0;
     public static int rewardApples = 0;

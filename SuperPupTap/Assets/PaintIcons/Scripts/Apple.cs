@@ -24,7 +24,7 @@ public class Apple : MonoBehaviour {
 
     void Start() {
         startTime = Time.time;
-        transform.localScale = new Vector3 (1f, 1f, 1f);
+        transform.localScale = new Vector3 (0.5f, 0.5f, 0.5f);
         appleHeight = GetComponent<Transform>().position.y; //(float)UDPReceiver.sharedValue; //new
         applePositionStart = GetComponent<Transform>().position.x;
         transform.position = new Vector2(applePositionStart, appleHeight); //new
