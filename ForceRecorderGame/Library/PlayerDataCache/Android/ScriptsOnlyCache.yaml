@@ -8,6 +8,7 @@ ScriptsOnlyBuild:
     - InputDown
     - InputID
     - InputIDButton
+    - InputNext
     - InputUp
     - Instructions
     - PaintGame
@@ -101,61 +102,63 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 11552}
     - Class: 114
-      Script: {instanceID: 11658}
+      Script: {instanceID: 11624}
     - Class: 114
-      Script: {instanceID: 11782}
+      Script: {instanceID: 11660}
     - Class: 114
-      Script: {instanceID: 11802}
+      Script: {instanceID: 11686}
     - Class: 114
-      Script: {instanceID: 11824}
+      Script: {instanceID: 11786}
     - Class: 114
-      Script: {instanceID: 11944}
+      Script: {instanceID: 11806}
     - Class: 114
-      Script: {instanceID: 12294}
+      Script: {instanceID: 11828}
     - Class: 114
-      Script: {instanceID: 12348}
+      Script: {instanceID: 11948}
     - Class: 114
-      Script: {instanceID: 12422}
+      Script: {instanceID: 12298}
     - Class: 114
-      Script: {instanceID: 12456}
+      Script: {instanceID: 12352}
     - Class: 114
-      Script: {instanceID: 12564}
+      Script: {instanceID: 12426}
     - Class: 114
-      Script: {instanceID: 13354}
+      Script: {instanceID: 12438}
     - Class: 114
-      Script: {instanceID: 13412}
+      Script: {instanceID: 12462}
     - Class: 114
-      Script: {instanceID: 13418}
+      Script: {instanceID: 12570}
     - Class: 114
-      Script: {instanceID: 13436}
+      Script: {instanceID: 12624}
     - Class: 114
-      Script: {instanceID: 13766}
+      Script: {instanceID: 13362}
     - Class: 114
-      Script: {instanceID: 13876}
+      Script: {instanceID: 13420}
     - Class: 114
-      Script: {instanceID: 13946}
+      Script: {instanceID: 13426}
     - Class: 114
-      Script: {instanceID: 14166}
+      Script: {instanceID: 13444}
     - Class: 114
-      Script: {instanceID: 14184}
+      Script: {instanceID: 13776}
     - Class: 114
-      Script: {instanceID: 14356}
+      Script: {instanceID: 13886}
     - Class: 114
-      Script: {instanceID: 14364}
+      Script: {instanceID: 13956}
     - Class: 114
-      Script: {instanceID: 14384}
+      Script: {instanceID: 14176}
     - Class: 114
-      Script: {instanceID: 14484}
+      Script: {instanceID: 14194}
     - Class: 114
-      Script: {instanceID: 14542}
+      Script: {instanceID: 14366}
     - Class: 114
-      Script: {instanceID: 14638}
+      Script: {instanceID: 14374}
     - Class: 114
-      Script: {instanceID: 149908}
+      Script: {instanceID: 14394}
     - Class: 114
-      Script: {instanceID: 149918}
+      Script: {instanceID: 14494}
     - Class: 114
-      Script: {instanceID: 159820}
+      Script: {instanceID: 14552}
+    - Class: 114
+      Script: {instanceID: 14648}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -307,6 +310,12 @@ ScriptsOnlyBuild:
     className: TouchInputModule
   - hash:
       serializedVersion: 2
+      Hash: 3f94200a63b7962954d0791c4347f4dc
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: InputUp
+  - hash:
+      serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
     assemblyName: UnityEngine.TestRunner.dll
     namespaceName: UnityEngine.TestTools.TestRunner.Callbacks
@@ -323,6 +332,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.TextMeshPro.dll
     namespaceName: TMPro
     className: TMP_InputField
+  - hash:
+      serializedVersion: 2
+      Hash: 3f94200a63b7962954d0791c4347f4dc
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: InputNext
   - hash:
       serializedVersion: 2
       Hash: 7ab0e790220bdca831fdd886b339039d
@@ -512,6 +527,12 @@ ScriptsOnlyBuild:
   - hash:
       serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Reps
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
     assemblyName: com.gripable.gripable-ble-unity.dll
     namespaceName: 
     className: DontDestroyOnLoad
@@ -527,6 +548,12 @@ ScriptsOnlyBuild:
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: InputID
+  - hash:
+      serializedVersion: 2
+      Hash: 3f94200a63b7962954d0791c4347f4dc
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: InputDown
   - hash:
       serializedVersion: 2
       Hash: b3ab2106268377ffe25dd18ac23dca28
@@ -683,6 +710,12 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.EventSystems
     className: Physics2DRaycaster
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Apple2
   - hash:
       serializedVersion: 2
       Hash: 62fef86270a167c41a606cfca1ecc156
@@ -1007,31 +1040,7 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: PlayableTrack
-  - hash:
-      serializedVersion: 2
-      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: Apple2
-  - hash:
-      serializedVersion: 2
-      Hash: 3f94200a63b7962954d0791c4347f4dc
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: InputUp
-  - hash:
-      serializedVersion: 2
-      Hash: 3f94200a63b7962954d0791c4347f4dc
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: InputDown
-  - hash:
-      serializedVersion: 2
-      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: Reps
   platform: 13
   scenePathNames:
   - Assets/Scenes/SampleScene.unity
-  playerPath: /Users/ayurkewi/UnityGames/GripAble-Unity/ForceRecorderGame/ForceRecorderGame-2020-11-29.apk
+  playerPath: /Users/ayurkewi/UnityGames/GripAble-Unity/ForceRecorderGame/ForceRecorderGame-2021-07-11-AY.apk

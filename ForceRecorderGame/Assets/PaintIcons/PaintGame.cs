@@ -57,7 +57,7 @@ public class PaintGame : MonoBehaviour {
     public static float selectAngleMax = 0.2f;
     public static Vector2 glovePosition = new Vector2(0.8f, -6.2f);
     public static Color gloveColor = new Color(1, 1, 1, 0);
-    public static string macAddress = "DB:1C:18:62:82:9C";//:Aaron Blue1: DB:1C:18:62:82:9C Aaron1: CA:49:AB:EF:4A:17 Leeza1: D5:B2:37:4A:C8:5E Leeza2: F9:05:C0:6D:B2:C2 Satoshi1: C9:D9:D6:CA:33:CB Satoshi2: D6:7E:B6:F8:F4:8D Satoshi3: F1:FD:7F:8C:B2:61
+    public static string macAddress = "CF:C8:03:D7:2E:FC";//:Aaron Blue1: DB:1C:18:62:82:9C Aaron1: CA:49:AB:EF:4A:17 Leeza1: D5:B2:37:4A:C8:5E Leeza2: F9:05:C0:6D:B2:C2 Satoshi1: C9:D9:D6:CA:33:CB Satoshi2: D6:7E:B6:F8:F4:8D Satoshi3: F1:FD:7F:8C:B2:61 Juliette1: FF:30:2F:47:20:6E
     public static int maxReps = 36;
     public static int maxCalibReps = 10000; // if you change this you need to change Save.cs
     public static float[] mvcCal = new float[maxCalibReps];
@@ -71,9 +71,7 @@ public class PaintGame : MonoBehaviour {
     public static int waitInc = 3;
     public static bool initialize = false;
     public static int repCounter = 0;
-    public static float appleHeight = -4.8f;
     public static Color appleColor = Color.white;
-
     public static int stimCounter = 2;
     public static int forceCounter = 1;
     public static Color idButtonColor = Color.white;
@@ -93,65 +91,48 @@ public class PaintGame : MonoBehaviour {
     public static int stage = 0;
     public static float forceStep = 1.25f;
     public static int forceStepCounter = 0;
+    public static float appleHeight = -4.5f;
+    public static float forceBias = 0f;
+    public static bool init = false;
+    public static float timeBias = 0f;
+    public static bool init2 = false;
+    public static float appleHeight1 = -4.5f;
+    public static float appleHeight2 = 1.5f;
+    public static bool timeGrip = false;
+    public static float climberForceBiased = 0f;
 
     void Start() {
         GripablePlugin.Player.SetDevice(macAddress); //CA:49:AB:EF:4A:17
         GripablePlugin.Player.Connect();
+
     }
 
     void Update() {
-        //instruction = " update ";
+        instruction = " update ";
         if (GripablePlugin.Player.IsInitialized()) {
-            if (initialize == false) {
-                instruction = " initializing - plug in gripable and press latch down ";
-            }
+            instruction = " initializing ";
             force = GripablePlugin.Player.GetGripForce();
-            angleYaw = GripablePlugin.Player.GetYaw();// + GripablePlugin.Player.GetRoll() + GripablePlugin.Player.GetPitch();
-            anglePitch = GripablePlugin.Player.GetPitch();// + GripablePlugin.Player.GetRoll() + GripablePlugin.Player.GetPitch();
-            angleRoll = GripablePlugin.Player.GetRoll();// + GripablePlugin.Player.GetRoll() + GripablePlugin.Player.GetPitch();
-            initialize = true;
-            climberForce = force;
+            climberForce = force ;
+            instruction = " force ";
+            selectAngle = GripablePlugin.Player.GetRoll();// + GripablePlugin.Player.GetRoll() + GripablePlugin.Player.GetPitch();
+            instruction = " yaw ";
+            instruction = " ready ";
+            if (init == false) { forceBias = GripablePlugin.Player.GetGripForce(); init = true; }
         }
 
-        if (counter == 0 && applyUserID == true && Time.time > previousRespawn + 1) {
-            Instantiate(apple, new Vector3(14.5f, appleHeight, 0), Quaternion.identity);
+        if (applyUserID == true && Time.time > previousRespawn + 0.5f) {
+            if (init2 == false) { timeBias = Time.time; init2 = true; }
+
+            if ((Time.time - timeBias) < 3) { timeGrip = false; }
+            else if ((Time.time - timeBias) < 6) { timeGrip = true; }
+            else { timeBias = Time.time; timeGrip = false; }
+
+            if (timeGrip == false) { Instantiate(apple, new Vector3(14.5f, appleHeight1, 0), Quaternion.identity); }
+            else if (timeGrip == true) { Instantiate(apple, new Vector3(14.5f, appleHeight2, 0), Quaternion.identity); }
+
             previousRespawn = Time.time;
-            if (repStarted == false) {
-                reps++;
-                repStarted = true;
-                repStart = Time.time;
-            }
-            if (Time.time > (repStart + repTimer)) {
-                if (restStarted == false) {
-                    appleHeightPrevious = appleHeight;
-                    restStarted = true; 
-                }
-                appleHeight = -4.8f;
-                if (Time.time > (repStart + (repTimer * 2))) {
-                    appleHeight = appleHeightPrevious;
-                    repStarted = false;
-                    restStarted = false;
-                    //if (stage == 1) {
-                    //    appleHeightStage1 = appleHeight;
-                    //    forceStepCounter++;
-                    //    if (forceStepCounter == 8) {
-                    //        appleHeight = appleHeightStage1;
-                    //    }
-                    //    else if (forceStepCounter < 4) {
-                    //        appleHeight = appleHeight * forceStep;
-                    //    }
-                    //    else if (forceStepCounter >= 4) {
-                    //        appleHeight = appleHeight * -forceStep;
-                    //    }
-                    //}
-                }
-            }
         }
-        
-        climberPosition = (force * climberForceScale) - 5f;
-
-        //Physical Setup - Open this App, Place Myo with LED on dorsal side of Arm, Place FES, Place Gripable in Hand, Turn on Python App
-        //No need to record location of each sEMG sensor
-
+        climberForceBiased = force - forceBias;
+        climberPosition = ((force- forceBias) * climberForceScale) - 4.5f;
     }
 }

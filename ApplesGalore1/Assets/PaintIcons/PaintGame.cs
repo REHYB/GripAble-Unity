@@ -54,7 +54,7 @@ public class PaintGame : MonoBehaviour {
     public static float selectAngleMax = 0.2f;
     public static Vector2 glovePosition = new Vector2 (0.8f, -6.2f);
     public static Color gloveColor = new Color(1, 1, 1, 0);
-    public static string macAddress = "F9:05:C0:6D:B2:C2";//:Aaron1: CA:49:AB:EF:4A:17 Leeza1: D5:B2:37:4A:C8:5E Leeza2: F9:05:C0:6D:B2:C2
+    public static string macAddress = "FF:30:2F:47:20:6E";//:Aaron1: CA:49:AB:EF:4A:17 Leeza1: D5:B2:37:4A:C8:5E Leeza2: F9:05:C0:6D:B2:C2
     public static int maxReps = 36;
     public static int maxCalibReps = 5; // if you change this you need to change Save.cs
     public static float[] mvcCal = new float[maxCalibReps];

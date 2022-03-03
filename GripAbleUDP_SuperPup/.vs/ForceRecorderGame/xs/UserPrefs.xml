@@ -1,0 +1,42 @@
+﻿<Properties StartupConfiguration="{57ADC14D-571B-7CF6-D238-861BF444325A}|">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Library/PackageCache/com.gripable.gripable-ble-unity@4.1.0/Src/Runtime/Player.cs">
+    <Files>
+      <File FileName="Library/PackageCache/com.gripable.gripable-ble-unity@4.1.0/Src/Runtime/Player.cs" Line="100" Column="14" />
+      <File FileName="Assets/PaintIcons/PaintGame.cs" Line="107" Column="44" />
+      <File FileName="Assets/PaintIcons/Climber.cs" />
+      <File FileName="Assets/PaintIcons/Instructions.cs" />
+      <File FileName="Assets/PaintIcons/InputIDButton.cs" />
+      <File FileName="Assets/PaintIcons/Apple.cs" />
+      <File FileName="Assets/PaintIcons/Apple2.cs" />
+      <File FileName="Assets/PaintIcons/AppleScore.cs" />
+      <File FileName="Assets/PaintIcons/PushButton.cs" />
+      <File FileName="Assets/PaintIcons/Save.cs" />
+      <File FileName="Assets/PaintIcons/InputNext.cs" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="ForceRecorderGame" expanded="True">
+            <Node name="Assets" expanded="True">
+              <Node name="PaintIcons" expanded="True">
+                <Node name="PaintGame.cs" selected="True" />
+              </Node>
+              <Node name="Plugins" expanded="True">
+                <Node name="Android" expanded="True" />
+                <Node name="iOS" expanded="True" />
+                <Node name="myo.bundle" expanded="True" />
+              </Node>
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="85acd802-ed0e-4112-86d7-42381987d22e" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>

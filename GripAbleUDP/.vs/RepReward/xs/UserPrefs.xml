@@ -1,0 +1,32 @@
+﻿<Properties StartupConfiguration="{D743E622-6577-C434-9468-44E97ADCC592}|">
+  <MonoDevelop.Ide.Workbench ActiveDocument="../../Node/MyoDiagnostic-master/js/diagnostics.js">
+    <Files>
+      <File FileName="../../Node/MyoDiagnostic-master/js/diagnostics.js" Line="1" Column="1" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="RepReward" expanded="True">
+            <Node name="Assets" expanded="True">
+              <Node name="Myo" expanded="True">
+                <Node name="Scripts" expanded="True">
+                  <Node name="Myo.NET" expanded="True" />
+                </Node>
+              </Node>
+              <Node name="PaintIcons" expanded="True">
+                <Node name="PaintGame.cs" selected="True" />
+              </Node>
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="0e81a228-82a8-4778-89d5-03f124598826" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>

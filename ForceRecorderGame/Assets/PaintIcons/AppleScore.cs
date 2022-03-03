@@ -13,5 +13,6 @@ public class AppleScore : MonoBehaviour
     void Update()  {
         TextMeshPro textmeshPro = GetComponent<TextMeshPro>();
         textmeshPro.SetText("" + PaintGame.bonesCaught);
+        //textmeshPro.SetText("" + PaintGame.force); //debug
     }
 }

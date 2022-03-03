@@ -1,0 +1,34 @@
+﻿<Properties StartupConfiguration="{5E51696D-178F-55EA-BD79-40255BA693EF}|">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/PaintIcons/Scripts/PaintGame.cs">
+    <Files>
+      <File FileName="Assets/PaintIcons/Scripts/PaintGame.cs" Line="34" Column="29" IsPinned="True" />
+      <File FileName="Assets/PaintIcons/Scripts/InputFESData.cs" Line="25" Column="76" IsPinned="True" />
+      <File FileName="Assets/PaintIcons/Scripts/InputFES.cs" Line="1" Column="1" />
+      <File FileName="Library/PackageCache/com.gripable.gripable-ble-unity@4.1.0/Src/Runtime/Player.cs" Line="209" Column="89" />
+      <File FileName="Assets/PaintIcons/Scripts/GripMacAddr.cs" Line="1" Column="1" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="GripAbleUDP_SuperPup2" expanded="True">
+            <Node name="Assets" expanded="True">
+              <Node name="PaintIcons" expanded="True">
+                <Node name="Scripts" expanded="True">
+                  <Node name="PaintGame.cs" selected="True" />
+                </Node>
+              </Node>
+              <Node name="Plugins" expanded="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="996f2359-0639-4911-9fb9-477f3bab8e7b" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>

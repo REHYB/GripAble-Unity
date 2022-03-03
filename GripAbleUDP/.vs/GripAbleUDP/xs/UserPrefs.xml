@@ -1,0 +1,23 @@
+﻿<Properties StartupConfiguration="{010D67EF-0521-C68B-7B87-FF3228230A26}|">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Library/PackageCache/com.gripable.gripable-ble-unity@4.1.0/Src/Runtime/Player.cs">
+    <Files>
+      <File FileName="Library/PackageCache/com.gripable.gripable-ble-unity@4.1.0/Src/Runtime/Player.cs" Line="238" Column="10" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="GripAbleUDP" expanded="True">
+            <Node name="Assets" expanded="True" selected="True" />
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="7d93c4c3-2de1-4852-8bee-0793a0bf630f" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>

@@ -1,0 +1,40 @@
+﻿<Properties StartupConfiguration="{BFCB1E32-C44E-A569-A3F8-CCD7EE7CD844}|">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/PaintIcons/PaintGame.cs">
+    <Files>
+      <File FileName="Library/PackageCache/com.gripable.gripable-ble-unity@4.1.0/Src/Runtime/Player.cs" Line="207" Column="85" />
+      <File FileName="Assets/PaintIcons/PaintGame.cs" Line="19" Column="1" />
+      <File FileName="Assets/PaintIcons/Save.cs" />
+      <File FileName="Assets/PaintIcons/AppleScore.cs" />
+      <File FileName="Assets/PaintIcons/NoButtonSelect.cs" />
+      <File FileName="Assets/PaintIcons/YesButtonSelect.cs" />
+      <File FileName="Assets/PaintIcons/ResearchInfo.cs" />
+      <File FileName="Assets/PaintIcons/Apple.cs" />
+      <File FileName="Assets/PaintIcons/CircleTimer.cs" />
+      <File FileName="Assets/PaintIcons/Instructions.cs" />
+      <File FileName="Library/PackageCache/com.gripable.gripable-ble-unity@4.1.0/Src/Runtime/CalibrationData.cs" />
+      <File FileName="Assets/PaintIcons/InputIDApply.cs" />
+      <File FileName="Assets/PaintIcons/Climber.cs" />
+      <File FileName="Assets/PaintIcons/Glove.cs" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="ApplesGalore1" expanded="True">
+            <Node name="Assets" expanded="True">
+              <Node name="PaintIcons" expanded="True">
+                <Node name="PaintGame.cs" selected="True" />
+              </Node>
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="85acd802-ed0e-4112-86d7-42381987d22e" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>

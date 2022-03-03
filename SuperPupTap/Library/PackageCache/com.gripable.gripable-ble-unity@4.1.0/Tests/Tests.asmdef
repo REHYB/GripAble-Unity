@@ -1,0 +1,21 @@
+{
+    "name": "Tests",
+    "references": [
+        "com.gripable.gripable-ble-unity",
+        "com.gripable.gripable-ble-unity.Editor",
+        "com.gripable.gripableprotosunity.Editor",
+        "com.gripable.gripableprotosunity"
+    ],
+    "optionalUnityReferences": [
+        "TestAssemblies"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": []
+}
