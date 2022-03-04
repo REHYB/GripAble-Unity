@@ -88,7 +88,7 @@ public class PaintGame : MonoBehaviour {
     public static float repStart = 0f;
     public static float repTimer = 30f;
     public static float appleHeightPrevious = -4.1f;
-    public static int bonesCaught = 0;
+    public static float bonesCaught = 0;
     public static int stage = 0;
     public static float forceStep = 1.25f;
     public static int forceStepCounter = 0;
@@ -99,9 +99,9 @@ public class PaintGame : MonoBehaviour {
     public static bool tapDetected = false;
     float timePrev = 0;
     float timeUpdate = 0.1f; // how fast puppy position updates
-    public static float challengeTap = 1.0f;  // how fast puppy rises on taps
+    public static float challengeTap = 1.1f;  // how fast puppy rises on taps
     float fallSpeed = 0.5f; // how fast puppy falls
-    float respawnGap = 3;
+    float respawnGap = 4;
     float previousRespawn = -3;
     public static int bonesCreated = 0;
     public static bool wallContact = false;
@@ -111,14 +111,14 @@ public class PaintGame : MonoBehaviour {
     static float m1 = climberPositionMax - climberPositionMin;
     static float m2 = climberPositionMin + 0.7f;
     //public static float[] appleHeightVector = new float[] { m2+m1*0/6, m2+m1*1/6, m2+m1*2/6, m2+m1*3/6, m2+m1*4/6, m2+m1*5/6, m2+m1*6/6 };
-    public static float[] appleHeightVector = new float[] { m2+m1*2/6, m2+m1*2/6, m2+m1*2/6, m2+m1*4/6, m2+m1*4/6, m2+m1*4/6, m2+m1*6/6, m2+m1*6/6, m2+m1*6/6 };
-    public static int[] appleRewardVector = new int[] { 0, 1, 2, 0, 1, 2, 0, 1, 2 };
+    public static float[] appleHeightVector = new float[] { m2+m1*1/2, m2+m1*1/2, m2+m1*1/2, m2+m1*1/2, m2+m1*3/4, m2+m1*3/4, m2+m1*3/4, m2+m1*3/4, m2+m1, m2+m1, m2+m1, m2+m1, m2+m1*1/12 };
+    public static int[] appleRewardVector = new int[] { 1, 2, 3, 4, 1, 2, 3, 4, 1, 2, 3, 4 };
     public static int reward = 1;
     public static int challenge = 1;
     public static bool success = false;
-    public static float stage1 = 200f; //bronze
-    public static float stage2 = 500f;//silver
-    public static float stage3 = 2000f;//gold
+    public static float stage1 = 40f; //bronze
+    public static float stage2 = 100f;//silver
+    public static float stage3 = 200f;//gold
     public static int programStage = 0;
     public static int rewardBonePrev;
     public static int challengeBonePrev;
@@ -128,7 +128,7 @@ public class PaintGame : MonoBehaviour {
     //public static int[] challengeBoneArray = new int[10000]; //1-6
     public static int[] targetHitArray = new int[10000];
     public static int repCount = 0;
-    public static int rewardLevels = 3;
+    public static int rewardLevels = 4;
     public static int challengeLevels = 3;
     public static int rounds = 50;
     public static int options = rewardLevels * challengeLevels;
@@ -139,6 +139,8 @@ public class PaintGame : MonoBehaviour {
     public static int tempGO;
     public static bool decoyBone = false;
     public static bool tapEnabled = true;
+    public static int calibTrials = 8;
+    public static int calibTrialsMin = 4;
 
     void Start() {
         //rewardBoneArray[0] = 4; rewardBoneArray[1] = 2; rewardBoneArray[2] = 6;
@@ -166,19 +168,6 @@ public class PaintGame : MonoBehaviour {
                 //Debug.Log(boneArray[i * options + k]);
             }
         }
-
-        //for (int i = 0; i < challengeBoneArray.Length; i++) {
-        //    int rnd = UnityEngine.Random.Range(i, challengeBoneArray.Length);
-        //    tempGO = challengeBoneArray[rnd];
-        //    challengeBoneArray[rnd] = challengeBoneArray[i];
-        //    challengeBoneArray[i] = tempGO;
-        //}
-        //for (int i = 0; i < rewardBoneArray.Length; i++) {
-        //    int rnd = UnityEngine.Random.Range(i, rewardBoneArray.Length);
-        //    tempGO = rewardBoneArray[rnd];
-        //    rewardBoneArray[rnd] = rewardBoneArray[i];
-        //    rewardBoneArray[i] = tempGO;
-        //}
     }
 
     void Update() {
@@ -187,6 +176,7 @@ public class PaintGame : MonoBehaviour {
             climberPosition = climberPosition - fallSpeed;
             if (tapDetected == true) {
                 climberPosition = climberPosition + challengeTap;
+                Debug.Log(challengeTap);
                 tapDetected = false;
             }
             if (climberPosition > climberPositionMax) {
@@ -200,53 +190,44 @@ public class PaintGame : MonoBehaviour {
 
         // Select bone height
         if (applyUserID == true && Time.time > (previousRespawn + respawnGap)) {
+            climberPosition = climberPositionMin;
             previousRespawn = Time.time;
             //training
-            if (trials < 3) {
-                reward = appleRewardVector[trials]; // 1 to 6 bones
-                appleHeight = appleHeightVector[trials*3];
+            trials++;
+            if (trials <= calibTrialsMin) {
+                reward = appleRewardVector[trials-1]; // 1 to 6 bones
+                if (trials == 1) { appleHeight = appleHeightVector[12]; }
+                else { appleHeight = appleHeightVector[(trials - 2) * 4]; }
                 Instantiate(apple, new Vector3(14.5f, appleHeight, 0), Quaternion.identity);
                 programStage = 1;
             }
 
             //calibration
-            else if (trials >= 3 && trials < 19) {
-                if (trials % 2 == 0) {
-                    tapEnabled = true;
-                    reward = appleRewardVector[0]; // 1 to 6 bones
-                    decoyBone = false;
-                    Instantiate(apple, new Vector3(14.5f, appleHeightVector[8], 0), Quaternion.identity);
-                    programStage = 2;
-                }
-                else {
-                    // disable button
-                    tapEnabled = false;
-                    //decoyBone = true;
-                    //Instantiate(apple, new Vector3(14.5f, appleHeightVector[0], 0), Quaternion.identity);
-                }
+            else if (trials <= calibTrials) {
+                challengeTap = challengeTap + 0.02f;
+                tapEnabled = true;
+                reward = appleRewardVector[3]; // 1 to 6 bones
+                decoyBone = false;
+                Instantiate(apple, new Vector3(14.5f, appleHeightVector[8], 0), Quaternion.identity);
+                programStage = 2;
+                // disable button
+                //decoyBone = true;
+                //Instantiate(apple, new Vector3(14.5f, appleHeightVector[0], 0), Quaternion.identity);
             }
 
             //game
             else {
                 programStage = 4;
-                if (trials % 2 == 0) {
-                    tapEnabled = true;
-                    //staircase algorithm is evil for data analysis
-                    appleHeight = appleHeightVector[boneArray[trials-20]+1]; 
-                    reward = rewardBoneArray[trials-20]+1;  
-                    challengeBoneArray[repCount] = challenge;
-                    decoyBone = false;
-                    Instantiate(apple, new Vector3(14.5f, appleHeight, 0), Quaternion.identity);
-                    //Instantiate(apple, new Vector3(14.5f, appleHeightVector[0], 0), Quaternion.identity);
-                    repCount++;
-                }
-                else {
-                    tapEnabled = false;
-                    //decoyBone = true;
-                    //Instantiate(apple, new Vector3(14.5f, appleHeightVector[0], 0), Quaternion.identity);
-                }
+                tapEnabled = true;
+                //staircase algorithm is evil for data analysis
+                appleHeight = appleHeightVector[boneArray[trials - calibTrials - 1]]; 
+                reward = appleRewardVector[boneArray[trials - calibTrials - 1]];  
+                challengeBoneArray[repCount] = (int)Mathf.Floor((float)boneArray[trials - calibTrials - 1]/3)+1;
+                decoyBone = false;
+                Instantiate(apple, new Vector3(14.5f, appleHeight, 0), Quaternion.identity);
+                Instantiate(apple, new Vector3(14.5f, appleHeightVector[12], 0), Quaternion.identity);
+                repCount++;
             }
-            trials++;
         }
     }
 }

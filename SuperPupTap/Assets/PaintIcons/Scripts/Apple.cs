@@ -30,26 +30,26 @@ public class Apple : MonoBehaviour {
         transform.position = new Vector2(applePositionStart, appleHeight); //new
         trialTag = PaintGame.trials;
 
-        if (appleHeight == PaintGame.appleHeightVector[0] && PaintGame.decoyBone == false) { GetComponent<SpriteRenderer>().sprite = bone1; }
+        if (appleHeight == PaintGame.appleHeightVector[12]) { GetComponent<SpriteRenderer>().sprite = bone1; }
         else if (appleHeight == PaintGame.appleHeightVector[0] && PaintGame.decoyBone == true) {
             GetComponent<SpriteRenderer>().sprite = bone6;
-            GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 0 / 5f, 1f);
+            //GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 0 / 5f, 1f);
         }
         else if (PaintGame.reward == 1) {
             GetComponent<SpriteRenderer>().sprite = bone1;
-            GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 5/5f, 1f);
+            //GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 5/5f, 1f);
         }
         else if (PaintGame.reward == 2) {
             GetComponent<SpriteRenderer>().sprite = bone2;
-            GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 4/5f, 1f);
+            //GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 4/5f, 1f);
         }
         else if (PaintGame.reward == 3) {
             GetComponent<SpriteRenderer>().sprite = bone3;
-            GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 3/5f, 1f);
+           //GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 3/5f, 1f);
         }
         else if (PaintGame.reward == 4) {
             GetComponent<SpriteRenderer>().sprite = bone4;
-            GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 2/5f, 1f);
+            //GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 2/5f, 1f);
         }
         else if (PaintGame.reward == 5) {
             GetComponent<SpriteRenderer>().sprite = bone5;
@@ -66,12 +66,9 @@ public class Apple : MonoBehaviour {
         applePosition = applePositionStart - (Time.time - startTime) * 4f;
         transform.position = new Vector2(applePosition, appleHeight); //-1.8f between 
         if (applePosition < -2f && boneContact == false && dataSaved == false) {
-            if (appleHeight != PaintGame.appleHeightVector[0] ) {
+            if (appleHeight != PaintGame.appleHeightVector[9] ) {
                 CallSaveSimpleData(0);
                 dataSaved = true;
-                if (trialTag % 2 == 0 && trialTag > 4 && trialTag < 20 && appleHeight != PaintGame.appleHeightVector[0]) {
-                    PaintGame.challengeTap = PaintGame.challengeTap + 0.55f * 1 / trialTag;
-                }
             }
             Explode();
             PaintGame.tagDestroy = trialTag;
@@ -86,22 +83,28 @@ public class Apple : MonoBehaviour {
     void OnTriggerEnter2D(Collider2D col) {
         if (col.gameObject.name == "climber" && boneContact == false && trialTag != PaintGame.tagDestroy) {
             boneContact = true;
-            if (trialTag % 2 == 0 && trialTag >= 20 && appleHeight != PaintGame.appleHeightVector[0]) {
-                PaintGame.targetHitArray[(trialTag - 20) / 2] = 1;
-            }
-            else if (trialTag % 2 == 0 && trialTag > 4 && appleHeight != PaintGame.appleHeightVector[0]) {
-                PaintGame.challengeTap = PaintGame.challengeTap - 0.55f * 1 / trialTag;
-            }
             PaintGame.tagDestroy = trialTag;
-            if (appleHeight > PaintGame.appleHeightVector[0]){
+            if (appleHeight != PaintGame.appleHeightVector[9]) {
+                PaintGame.targetHitArray[trialTag] = 1;
                 PaintGame.success = true;
             }
-            else { PaintGame.success = false; }
-
-            if (appleHeight == PaintGame.appleHeightVector[6]) {
-                PaintGame.challengeTap = PaintGame.challengeTap - 0.02f;
+            else {
+                PaintGame.targetHitArray[trialTag] = 0;
+                PaintGame.success = false;
             }
-            if (appleHeight != PaintGame.appleHeightVector[0] && dataSaved == false) { CallSaveSimpleData(1); dataSaved = true;}
+
+            if(PaintGame.trials > PaintGame.calibTrialsMin && PaintGame.trials <= PaintGame.calibTrials) {
+                PaintGame.challengeTap = PaintGame.challengeTap - 0.05f;
+            }
+
+            if (PaintGame.trials > PaintGame.calibTrials && appleHeight == PaintGame.appleHeightVector[8]) {
+                PaintGame.challengeTap = PaintGame.challengeTap - 0.005f;
+            }
+
+            if (appleHeight != PaintGame.appleHeightVector[9] && dataSaved == false) {
+                CallSaveSimpleData(1);
+                dataSaved = true;
+            }
             Explode();
         }
     }
@@ -110,10 +113,10 @@ public class Apple : MonoBehaviour {
         ParticleSystem exp = GetComponent<ParticleSystem>();
         if (boneContact == true && boneCounted == false) {
             boneCounted = true;
-            if (GetComponent<SpriteRenderer>().sprite == bone1) { PaintGame.bonesCaught = PaintGame.bonesCaught+1; }
-            else if (GetComponent<SpriteRenderer>().sprite == bone2) { PaintGame.bonesCaught = PaintGame.bonesCaught+2; }
-            else if (GetComponent<SpriteRenderer>().sprite == bone3) { PaintGame.bonesCaught = PaintGame.bonesCaught+3; }
-            else if (GetComponent<SpriteRenderer>().sprite == bone4) { PaintGame.bonesCaught = PaintGame.bonesCaught+4; }
+            if (GetComponent<SpriteRenderer>().sprite == bone1) { PaintGame.bonesCaught = PaintGame.bonesCaught+0.5f; }
+            else if (GetComponent<SpriteRenderer>().sprite == bone2) { PaintGame.bonesCaught = PaintGame.bonesCaught+1; }
+            else if (GetComponent<SpriteRenderer>().sprite == bone3) { PaintGame.bonesCaught = PaintGame.bonesCaught+2; }
+            else if (GetComponent<SpriteRenderer>().sprite == bone4) { PaintGame.bonesCaught = PaintGame.bonesCaught+3f; }
             else if (GetComponent<SpriteRenderer>().sprite == bone5) { PaintGame.bonesCaught = PaintGame.bonesCaught+5; }
             else if (GetComponent<SpriteRenderer>().sprite == bone6) { PaintGame.bonesCaught = PaintGame.bonesCaught+6; }
             exp.Play();
@@ -134,7 +137,7 @@ public class Apple : MonoBehaviour {
             if (targetHit == 1) { GetComponents<AudioSource>()[1].Play(); }
         }
         else if (GetComponent<SpriteRenderer>().sprite == bone4) { rewardBone = 4;
-            if (targetHit == 1) { GetComponents<AudioSource>()[1].Play(); }
+            if (targetHit == 1) { GetComponents<AudioSource>()[2].Play(); }
         }
         else if (GetComponent<SpriteRenderer>().sprite == bone5) { rewardBone = 5;
             if (targetHit == 1) { GetComponents<AudioSource>()[2].Play(); }
@@ -152,6 +155,5 @@ public class Apple : MonoBehaviour {
         PaintGame.rewardBonePrev = rewardBone;
         PaintGame.challengeBonePrev = challengeBone;
         PaintGame.targetHitPrev = targetHit;
-        
     }
 }
