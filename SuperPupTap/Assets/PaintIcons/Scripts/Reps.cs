@@ -12,7 +12,7 @@ public class Reps : MonoBehaviour {
     void Update()  {
         if (PaintGame.applyUserID == true) {
             TextMeshPro textmeshPro = GetComponent<TextMeshPro>();
-            textmeshPro.SetText("" + (PaintGame.trials).ToString("F0") + "/56+");
+            textmeshPro.SetText("" + (PaintGame.trials).ToString("F0") + "/58+");
         }
         else {
             TextMeshPro textmeshPro = GetComponent<TextMeshPro>();

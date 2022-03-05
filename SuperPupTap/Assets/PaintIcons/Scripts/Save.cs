@@ -39,7 +39,7 @@ public class Save : MonoBehaviour {
         }
         writer = new StreamWriter(destination, true);
         writer.WriteLine("TimeElapsed," + "TrialNumber," + "Reward," + "Challenge,"
-            + "Miss(0)/Hit(1)," + "TotalScore," + "ProgramState," + "RiseSpeed,"
+            + "Miss(0)/Hit(1)," + "TotalScore," + "ProgramState," + "RiseSpeed," + "DecoyFlag,"
             + "UserID," + PaintGame.userID + "," + "Date(MDY)," + DateTime.Now);
         writer.Close();
 
@@ -51,9 +51,9 @@ public class Save : MonoBehaviour {
     }
 
 
-    public static void SaveSimpleData(int trialNum, int rewardVal, int challengeVal, int hit) {
+    public static void SaveSimpleData(int trialNum, int rewardVal, int challengeVal, int hit, int decoyBoneFlag) {
         writer = new StreamWriter(destination, true);
-        writer.WriteLine(Time.time + "," + trialNum + "," + rewardVal + "," + challengeVal + "," + hit + "," + PaintGame.bonesCaught + "," + PaintGame.programStage + "," + PaintGame.challengeTap );
+        writer.WriteLine(Time.time + "," + trialNum + "," + rewardVal + "," + challengeVal + "," + hit + "," + PaintGame.bonesCaught + "," + PaintGame.programStage + "," + PaintGame.challengeTap, "," + decoyBoneFlag);
         writer.Close();
     } 
 

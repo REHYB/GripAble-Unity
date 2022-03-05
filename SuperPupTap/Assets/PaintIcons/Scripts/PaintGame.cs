@@ -139,7 +139,7 @@ public class PaintGame : MonoBehaviour {
     public static int tempGO;
     public static bool decoyBone = false;
     public static bool tapEnabled = true;
-    public static int calibTrials = 8;
+    public static int calibTrials = 10;
     public static int calibTrialsMin = 4;
 
     void Start() {
@@ -176,7 +176,7 @@ public class PaintGame : MonoBehaviour {
             climberPosition = climberPosition - fallSpeed;
             if (tapDetected == true) {
                 climberPosition = climberPosition + challengeTap;
-                Debug.Log(challengeTap);
+                //Debug.Log(challengeTap);
                 tapDetected = false;
             }
             if (climberPosition > climberPositionMax) {
