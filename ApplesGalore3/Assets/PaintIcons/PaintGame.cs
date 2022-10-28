@@ -56,8 +56,7 @@ public class PaintGame : MonoBehaviour {
     public static float selectAngleMax = 0.2f;
     public static Vector2 glovePosition = new Vector2(0.8f, -6.2f);
     public static Color gloveColor = new Color(1, 1, 1, 0);
-    public static string macAddress = "C7:37:68:67:F6:7E";//AY: "CF:C8:03:D7:2E:FC";//"C7:37:68:67:F6:7E"; //"F9:05:C0:6D:B2:C2";// Aaron1-B-I-G8: CF:C8:03:D7:2E:FC Aaron-B-V: CA:49:AB:EF:4A:17 Aaron-W-I: FF:30:2F:47:20:6E Leeza1: D5:B2:37:4A:C8:5E Leeza2-ThisOne: F9:05:C0:6D:B2:C2, Leeza-4S: D5:B2:37:4A:C8:5E, Leeza-1AY: C0:50:3E:B8:FC:61, Leeza-U3: E4:ED:DB:D1:B6:56, Leeza-G5: C7:37:68:67:F6:7E
-
+    public static string macAddress = "E4:ED:DB:D1:B6:56"; //AY USE: "CF:C8:03:D7:2E:FC"; LEEZA USE: "E4:ED:DB:D1:B6:56" //"C7:37:68:67:F6:7E"; //"F9:05:C0:6D:B2:C2";// Aaron1-B-I-G8: CF:C8:03:D7:2E:FC Aaron-B-V: CA:49:AB:EF:4A:17 Aaron-W-I: FF:30:2F:47:20:6E Leeza1: D5:B2:37:4A:C8:5E Leeza2: F9:05:C0:6D:B2:C2, Leeza-4S: D5:B2:37:4A:C8:5E, Leeza-1AY: C0:50:3E:B8:FC:61, Leeza-This One: E4:ED:DB:D1:B6:56, Leeza-G5: C7:37:68:67:F6:7E
     public static int maxReps = 45; //36
     public static int maxCalibReps = 5; // if you change this you need to change Save.cs
     public static float[] mvcCal = new float[maxCalibReps]; 
@@ -70,7 +69,7 @@ public class PaintGame : MonoBehaviour {
     int challengeHeightIncrement = 5;
     int[] applesToGrabArray = { 4, 6, 3, 5, 1, 2, 2, 1, 5, 6, 3, 4, 1, 3, 2, 4, 5, 6, 2, 3, 1, 4, 5, 6, 5, 1, 6, 4, 3, 2, 2, 6, 5, 4, 1, 3 };
     float[] challengeHeightArray = { 2, 4, 6, 1, 3, 5, 1, 5, 3, 6, 2, 4, 1, 4, 3, 6, 5, 2, 4, 5, 2, 1, 6, 3, 2, 4, 5, 3, 1, 6, 2, 1, 4, 5, 6, 3 };
-    bool useGripable = false;
+    bool useGripable = true;
     bool init = false;
     public static int challengeForce = 0;
     public static int rewardApples = 0;
@@ -224,22 +223,23 @@ public class PaintGame : MonoBehaviour {
         }
 
         else if (programState == 4) {
-            if (init == false) {
-                Cursor.visible = true;
-                if (useGripable == true) {
-                    gloveColor = new Color(1, 1, 1, 1);
-                }
-                yesButtonColor = Color.gray;
-                noButtonColor = Color.gray;
-                secondsStart = Time.time;
-                instruction = "-> CENTRE GLOVE <-";
-                init = true;
-            }
+            programState = 5;
+            //if (init == false) {
+            //    Cursor.visible = true;
+            //    if (useGripable == true) {
+            //        gloveColor = new Color(1, 1, 1, 1);
+            //    }
+            //    yesButtonColor = Color.gray;
+            //    noButtonColor = Color.gray;
+            //    secondsStart = Time.time;
+            //    instruction = "-> CENTRE GLOVE <-";
+            //    init = true;
+            //}
 
-            else if (selectAngle > 3.5 && selectAngle < 4) {
-                init = false;
-                programState = 5;
-            }
+            //else if (selectAngle > 3.5 && selectAngle < 4) {
+            //    init = false;
+            //    programState = 5;
+            //}
         }
 
         else if (programState == 5) {
@@ -292,23 +292,27 @@ public class PaintGame : MonoBehaviour {
                 init = true;
             }
 
-            else if (selectAngle < 2.05) {
+            //else if (selectAngle < 2.05) {
+            else if (noSelected == true) {
+                noSelected = false;
                 init = false;
                 if (useGripable == true) {
                     gloveColor = new Color(1, 1, 1, 0);
                 }
-                programState = 6;
+                reps++;
+                programState = 3;
             }
 
-            else if (selectAngle > 5.45) {
+            //else if (selectAngle > 5.45) {
+            else if (yesSelected == true) {
+                yesSelected = false;
                 init = false;
                 if (useGripable == true) {
                     gloveColor = new Color(1, 1, 1, 0);
                 }
                 noYesSuccess = 0;
-                reps++;
                 Save.SaveSimpleData();
-                programState = 3;
+                programState = 6;
             }
         }
 

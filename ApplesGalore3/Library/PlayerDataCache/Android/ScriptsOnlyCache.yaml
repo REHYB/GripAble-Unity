@@ -84,6 +84,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 82
       Script: {instanceID: 0}
+    - Class: 83
+      Script: {instanceID: 0}
     - Class: 104
       Script: {instanceID: 0}
     - Class: 109
@@ -1024,4 +1026,4 @@ ScriptsOnlyBuild:
   platform: 13
   scenePathNames:
   - Assets/Scenes/SampleScene.unity
-  playerPath: /Users/ayurkewi/UnityGames/GripAble-Unity/ApplesGalore2/ApplesGalore3-G5.apk
+  playerPath: /Users/ayurkewi/UnityGames/GripAble-Unity/ApplesGalore3/ApplesGalore5_E4.apk

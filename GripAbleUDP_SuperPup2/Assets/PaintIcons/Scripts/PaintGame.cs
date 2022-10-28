@@ -76,7 +76,7 @@ public class PaintGame : MonoBehaviour {
     public static Color gripSignalColor = new Color(0, 0, 0, 0);
     public static int fesCounter = 0;
     public static int fesCounterPrev = 0;
-    float rest = 2f;
+    float rest = 5f; // changed from 2f
     float hold = 3f;
     int rep = 0;
     int repMax = 5;

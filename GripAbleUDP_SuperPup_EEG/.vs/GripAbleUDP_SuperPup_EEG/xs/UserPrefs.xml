@@ -1,14 +1,5 @@
 ﻿<Properties StartupConfiguration="{CA197FA3-3B9A-D753-059A-CE54A9CFD030}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/PaintIcons/Scripts/PaintGame.cs">
-    <Files>
-      <File FileName="Library/PackageCache/com.gripable.gripable-ble-unity@4.1.0/Src/Runtime/Player.cs" Line="203" Column="32" />
-      <File FileName="Assets/PaintIcons/Scripts/StimIcon.cs" />
-      <File FileName="Assets/PaintIcons/Scripts/PaintGame.cs" Line="50" Column="44" />
-      <File FileName="Assets/PaintIcons/Scripts/UDPReceiver.cs" />
-      <File FileName="Assets/PaintIcons/Scripts/Apple.cs" />
-      <File FileName="Assets/PaintIcons/Scripts/Climber.cs" />
-      <File FileName="Assets/PaintIcons/Scripts/UDPTransmitter.cs" />
-    </Files>
+  <MonoDevelop.Ide.Workbench>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
@@ -16,7 +7,7 @@
             <Node name="Assets" expanded="True">
               <Node name="PaintIcons" expanded="True">
                 <Node name="Scripts" expanded="True">
-                  <Node name="PaintGame.cs" selected="True" />
+                  <Node name="UDPTransmitter.cs" selected="True" />
                 </Node>
               </Node>
               <Node name="Plugins" expanded="True" />
@@ -28,7 +19,7 @@
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="1d3b994c-bdff-48c0-98b4-3c692378657e" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="af832011-fe2e-4767-8819-d7fe001991ef" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>

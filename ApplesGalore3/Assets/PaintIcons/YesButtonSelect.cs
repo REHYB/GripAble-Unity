@@ -13,7 +13,8 @@ public class YesButtonSelect : MonoBehaviour
         GetComponent<SpriteRenderer>().color = PaintGame.yesButtonColor;
     }
         void OnMouseDown() {
-        if (PaintGame.programState == 4) {
+        //if (PaintGame.programState == 4) {
+        if (PaintGame.programState == 5) {
             PaintGame.yesSelected = true;
         }
     }

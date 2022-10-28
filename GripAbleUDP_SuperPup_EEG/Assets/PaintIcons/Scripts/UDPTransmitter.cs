@@ -7,14 +7,16 @@ using System.Net.Sockets;
 using System.Threading;
 
 public class UDPTransmitter : MonoBehaviour {
-    public string IP = "172.16.9.130";//"127.0.0.1";
+    public string IP = "146.169.191.0";//"127.0.0.1";
     //string IP = PaintGame.computerIP;
     public int TransmitPort;
     private IPEndPoint _RemoteEndPoint;
     private UdpClient _TransmitClient;
+    private double[] sendData = { 0, 0, 0, 0, 0, 0 };
+    double checksum = 0;
+
 
     private void Start() {
-        
     }
 
     /// <summary>
@@ -29,11 +31,35 @@ public class UDPTransmitter : MonoBehaviour {
     private void Update() {
         if (PaintGame.applyUserID == true && firstTime == false) {
             IP = PaintGame.computerIP;
+            Debug.Log(IP);
+            Debug.Log(TransmitPort);
             firstTime = true;
             Initialize();
         }
+
+        if (PaintGame.useGripable == true) {
+            sendData[0] = -128;
+            sendData[1] = PaintGame.force;
+            sendData[2] = PaintGame.angleX;
+            sendData[3] = PaintGame.angleY;
+            sendData[4] = PaintGame.angleZ;
+            checksum = sendData[0] * 1 + sendData[1] * 2 + sendData[2] * 3 + sendData[3] * 4 + sendData[4] * 5;
+            sendData[5] = checksum;//PaintGame.angleZ;
+            Debug.Log(checksum);
+        }
+        else {
+            sendData[0] = -128;
+            sendData[1] = PaintGame.climberForce;
+            sendData[2] = 0;// PaintGame.angleX;
+            sendData[3] = 0;// PaintGame.angleY;
+            sendData[4] = 0;//PaintGame.angleZ;
+            checksum = sendData[0] * 1 + sendData[1] * 2 + sendData[2] * 3 + sendData[3] * 4 + sendData[4] * 5;
+            sendData[5] = checksum;//PaintGame.angleZ;
+            Debug.Log(checksum);
+        }
+
         // Send(UDPReceiver.sharedValue); // There and Back Communication
-        Send(PaintGame.climberForce); //Gripable Force
+        Send(sendData); //Gripable Force
     }
 
     /// <summary>
@@ -44,9 +70,9 @@ public class UDPTransmitter : MonoBehaviour {
         try {
             // Convert string message to byte array.  
             byte[] serverMessageAsByteArray = BitConverter.GetBytes(val);//val
-
+            //Debug.Log(val);
             _TransmitClient.Send(serverMessageAsByteArray, serverMessageAsByteArray.Length, _RemoteEndPoint);
-            Debug.Log(val);
+            //Debug.Log(serverMessageAsByteArray);
         }
         catch (Exception err) {
             Debug.Log("<color=red>" + err.Message + "</color>");
@@ -61,6 +87,7 @@ public class UDPTransmitter : MonoBehaviour {
         try {
             for (int i = 0; i < val.Length; i++) { 
                 Send(val[i]);
+                //Debug.Log("Item: " + i + " , Value: " + val[i]);
             }
         }
         catch (Exception err) {

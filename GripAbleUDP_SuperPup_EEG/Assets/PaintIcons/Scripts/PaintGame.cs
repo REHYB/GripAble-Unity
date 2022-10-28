@@ -6,8 +6,6 @@ using Gripable;
 using System;
 using TMPro;
 
-
-
 public class PaintGame : MonoBehaviour {
     //Program State = RelaxCal - check that mouse is low and centred - relax instruction
     //Program State = SqueezeCal - check that mouse is low and centred - relax instruction
@@ -45,16 +43,19 @@ public class PaintGame : MonoBehaviour {
     public static string instruction2 = "";
     public static int reps = 0;
     public static float climberForce = 0;
-    public static string macAddress = "D9:EC:A0:72:0B:2C"; //CF:C8:03:D7:2E:FC";//:Aaron Blue1: DB:1C:18:62:82:9C Aaron1: CA:49:AB:EF:4A:17 Leeza1: D5:B2:37:4A:C8:5E Leeza2-thisOne: F9:05:C0:6D:B2:C2 Satoshi1: C9:D9:D6:CA:33:CB Satoshi2: D6:7E:B6:F8:F4:8D Satoshi3 CHIARA: F1:FD:7F:8C:B2:61 Juliette1: CF:C8:03:D7:2E:FC (Blue device at Imperial) //FF:30:2F:47:20:6E
+    public static string macAddress = "E1:39:99:37:A0:CA";//"CF:C8:03:D7:2E:FC"; //Chiara "D9:EC:A0:72:0B:2C"; //CF:C8:03:D7:2E:FC";//:Aaron Blue1: DB:1C:18:62:82:9C Aaron1: CA:49:AB:EF:4A:17 Leeza1: D5:B2:37:4A:C8:5E Leeza2-thisOne: F9:05:C0:6D:B2:C2 Satoshi1: C9:D9:D6:CA:33:CB Satoshi2: D6:7E:B6:F8:F4:8D Satoshi3 CHIARA: F1:FD:7F:8C:B2:61 Juliette1: CF:C8:03:D7:2E:FC (Blue device at Imperial) //FF:30:2F:47:20:6E
     public static int maxReps = 36;
     public static bool applyUserID = false;
     public static string userID = "notAvailable";
     public static float FESmA = 0f;
     public static float FESmAmax = 50f;
-    public static string computerIP = "146.169.205.243";//"127.0.0.1";
+    public static string computerIP = "146.169.191.0";//"127.0.0.1";
     public static float force = 0;
     public static float force1 = 0;
     public static float force2 = 0;
+    public static float angleX = 0;
+    public static float angleY = 0;
+    public static float angleZ = 0;
     public static bool initialize = false;
     public static float climberForceScale = 80f;
     public static float climberForcebias = 0;
@@ -80,7 +81,7 @@ public class PaintGame : MonoBehaviour {
     public static int fesCounterPrev = 0;
     public static double FESmAEntry = 0;
     public static double[] fesCalib = { 0, 0, 0, 0, 0 };
-    float rest = 2;
+    float rest = 5; //changed from 2
     float hold = 3;
     int rep = 0;
     int repMax = 5;
@@ -107,6 +108,9 @@ public class PaintGame : MonoBehaviour {
                     instruction = " gripable disconnected - connect through gripable's app first ";
                 }
                 force = GripablePlugin.Player.GetGripForce();
+                angleX = GripablePlugin.Player.GetPitch();
+                angleY = GripablePlugin.Player.GetRoll();
+                angleZ = GripablePlugin.Player.GetYaw();
                 instruction = force.ToString();
                 initialize = true;
                 climberForce = force;
