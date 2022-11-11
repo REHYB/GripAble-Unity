@@ -1,0 +1,26 @@
+﻿<Properties StartupConfiguration="{16304017-8960-8B01-CF2B-5F9FD12F0881}|">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Draw_Tutorial.cs">
+    <Files>
+      <File FileName="Assets/Draw_Tutorial.cs" Line="82" Column="64" />
+      <File FileName="Assets/UDPReceiver.cs" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="Draw" expanded="True">
+            <Node name="Assets" expanded="True">
+              <Node name="Draw_Tutorial.cs" selected="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="23227d59-6670-4c98-9502-6a18b3fd0ec8" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>

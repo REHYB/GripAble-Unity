@@ -1,0 +1,43 @@
+﻿<Properties StartupConfiguration="{1BCB51C3-C73E-EEA8-80EB-8AE4E27B66EF}|">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Library/PackageCache/com.gripable.gripable-ble-unity@4.1.0/Src/Runtime/Player.cs">
+    <Files>
+      <File FileName="Assets/PaintIcons/Scripts/StartButton.cs" Line="21" Column="21" />
+      <File FileName="Assets/PaintIcons/Scripts/PaintGame.cs" Line="50" Column="36" />
+      <File FileName="Assets/PaintIcons/Scripts/VibrateButton.cs" Line="26" Column="34" />
+      <File FileName="Library/PackageCache/com.gripable.gripable-ble-unity@4.1.0/Src/Runtime/GripablePlugin.cs" />
+      <File FileName="Library/PackageCache/com.gripable.gripable-ble-unity@4.1.0/Src/Runtime/Player.cs" Line="209" Column="61" />
+      <File FileName="Library/PackageCache/com.gripable.gripable-ble-unity@4.1.0/Src/Runtime/PlayerPanel.cs" />
+      <File FileName="Library/PackageCache/com.gripable.gripable-ble-unity@4.1.0/Src/Runtime/DeviceGateway.cs" />
+      <File FileName="Library/PackageCache/com.gripable.gripable-ble-unity@4.1.0/Src/Runtime/DebugPanel.cs" />
+      <File FileName="Library/PackageCache/com.gripable.gripable-ble-unity@4.1.0/Src/Runtime/ClientGateway.cs" />
+      <File FileName="Library/PackageCache/com.gripable.gripable-ble-unity@4.1.0/Src/Runtime/CalibrationData.cs" />
+      <File FileName="Library/PackageCache/com.gripable.gripable-ble-unity@4.1.0/Src/Runtime/ApplicationPauseHandler.cs" />
+      <File FileName="Library/PackageCache/com.gripable.gripable-ble-unity@4.1.0/Src/Runtime/ActivityLauncher.cs" />
+      <File FileName="Assets/PaintIcons/Scripts/GripMacAddr.cs" Line="18" Column="54" />
+      <File FileName="Assets/PaintIcons/Scripts/enterMa.cs" Line="1" Column="1" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="GripAbleUDP_SuperPup_EEG_Vibrate" expanded="True">
+            <Node name="Assets" expanded="True">
+              <Node name="PaintIcons" expanded="True">
+                <Node name="Scripts" expanded="True">
+                  <Node name="VibrateButton.cs" selected="True" />
+                </Node>
+              </Node>
+              <Node name="Plugins" expanded="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="b149039d-84f6-46b0-a106-a5f919f982c0" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>

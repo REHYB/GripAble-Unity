@@ -1,0 +1,17 @@
+{
+    "name": "com.gripable.gripable-ble-unity.Editor",
+    "references": [
+        "com.gripable.gripableprotosunity",
+        "com.gripable.gripableprotosunity.Editor"
+    ],
+    "optionalUnityReferences": [],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": []
+}

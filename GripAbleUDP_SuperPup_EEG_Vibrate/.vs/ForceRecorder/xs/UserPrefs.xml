@@ -1,0 +1,37 @@
+﻿<Properties StartupConfiguration="{59E00F49-4FDB-9FC1-323A-D99D5BC5AC84}|">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/PaintIcons/AppleScore.cs">
+    <Files>
+      <File FileName="Assets/PaintIcons/PaintGame.cs" Line="21" Column="1" />
+      <File FileName="Library/PackageCache/com.gripable.gripable-ble-unity@4.1.0/Src/Runtime/Player.cs" Line="204" Column="48" />
+      <File FileName="Assets/PaintIcons/Save.cs" />
+      <File FileName="Assets/PaintIcons/AppleScore.cs" Line="18" Column="1" />
+      <File FileName="Assets/PaintIcons/Apple.cs" />
+      <File FileName="Assets/PaintIcons/Climber.cs" />
+      <File FileName="Assets/PaintIcons/ResearchInfo.cs" />
+      <File FileName="Assets/PaintIcons/PushButton.cs" />
+      <File FileName="Assets/PaintIcons/Instructions.cs" />
+      <File FileName="Assets/PaintIcons/NoButtonSelect.cs" />
+      <File FileName="Assets/PaintIcons/YesButtonSelect.cs" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="ForceRecorder" expanded="True">
+            <Node name="Assets" expanded="True">
+              <Node name="PaintIcons" expanded="True">
+                <Node name="AppleScore.cs" selected="True" />
+              </Node>
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="385e338d-97b2-48a9-aa6e-ff1c1e90004d" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>
