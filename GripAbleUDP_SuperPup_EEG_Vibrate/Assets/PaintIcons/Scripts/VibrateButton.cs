@@ -10,20 +10,29 @@ public class VibrateButton : MonoBehaviour {
     public GameObject disappear;
     public Button button;
     bool init = false;
-    bool VibrateOn = false;
+    public static bool VibrateOn = false;
     float timePrev = Time.time;
+    float vibrateDelayMid = 5;
     float vibrateDelay = 5;
+    public static float vibrateOnMarker = 0;
 
     // Start is called before the first frame update
     void Start() {
         button.onClick.AddListener(TaskOnClick);
+        vibrateDelay = vibrateDelayMid;
     }
 
     // Update is called once per frame
     void Update() {
+
         if ( VibrateOn == true && ( Time.time > (timePrev + vibrateDelay) ) ) {
+            if (vibrateOnMarker == 0) {
+                vibrateOnMarker = 1;
+            }
+            else { vibrateOnMarker = 0; }
             GripablePlugin.Player.SendRumbleCommand(Protos.DeviceCommand.Types.VibrationEffect.VibEffectStrongClick100, Protos.DeviceCommand.Types.SamplingRate.Hz25);
             timePrev = Time.time;
+            vibrateDelay = vibrateDelayMid - 1 + 2 * Random.value;
         }
         //if (PaintGame.gameLevel == 1) {
         //    GetComponent<Image>().color = new Color(0, 0, 0, 0);
@@ -43,6 +52,9 @@ public class VibrateButton : MonoBehaviour {
     void TaskOnClick() {
         VibrateOn = !VibrateOn;
         timePrev = Time.time - vibrateDelay;
+        if (VibrateOn == false) {
+            vibrateOnMarker = 0;
+        }
 
         //if (PaintGame.gameLevel == 0) {
         //    PaintGame.applyUserID = true;

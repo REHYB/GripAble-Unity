@@ -42,13 +42,13 @@ public class Save : MonoBehaviour {
 
         ////Raw Data Recording
         writer = new StreamWriter(destination, true);
-        writer.WriteLine("Time" + "," + "Force" + "," + "ForceScale" + "," + "DogHeight" + "," + "BoneHeight" + "," + "BonesCaught" + "," + "Reps" + "," + "AngleYaw" + "," + "AnglePitch" + "," + "AngleRoll" + "," + "Grip Calibration 70" + "," + DateTime.Now.ToString("yyyy/MM/dd hh:mm:ss.fff"));
+        writer.WriteLine("Time" + "," + "Force" + "," + "ForceScale" + "," + "DogHeight" + "," + "BoneHeight" + "," + "BonesCaught" + "," + "Reps" + "," + "AngleYaw" + "," + "AnglePitch" + "," + "AngleRoll" + "," + "Grip Calibration 70" + "," + "VibrateCommand" + "," + DateTime.Now.ToString("yyyy/MM/dd hh:mm:ss.fff"));
         writer.Close();
     }
 
     public void SaveRawData() {
         writer = new StreamWriter(destination, true);
-        writer.WriteLine(DateTime.Now.Hour*3600+DateTime.Now.Minute*60+DateTime.Now.Second + "." + DateTime.Now.Millisecond + "," + PaintGame.force + "," + PaintGame.climberForceScale + "," + PaintGame.climberPosition + "," + PaintGame.bonesCaught + "," + PaintGame.reps + ",");
+        writer.WriteLine(DateTime.Now.Hour*3600+DateTime.Now.Minute*60+DateTime.Now.Second + "." + DateTime.Now.Millisecond + "," + PaintGame.force + "," + PaintGame.climberForceScale + "," + PaintGame.climberPosition + "," + PaintGame.bonesCaught + "," + PaintGame.reps + "," + VibrateButton.vibrateOnMarker);
         writer.Close();
     }
 }

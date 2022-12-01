@@ -40,7 +40,13 @@ public class UDPTransmitter : MonoBehaviour {
         if (PaintGame.useGripable == true) {
             sendData[0] = -128;
             sendData[1] = PaintGame.force;
-            sendData[2] = PaintGame.angleX;
+            if (VibrateButton.VibrateOn == true) {
+                PaintGame.vibrationOnCue = 1;
+            }
+            else {
+                PaintGame.vibrationOnCue = 0;
+            }
+            sendData[2] = PaintGame.vibrationOnCue;//PaintGame.angleX;
             sendData[3] = PaintGame.angleY;
             sendData[4] = PaintGame.angleZ;
             checksum = sendData[0] * 1 + sendData[1] * 2 + sendData[2] * 3 + sendData[3] * 4 + sendData[4] * 5;

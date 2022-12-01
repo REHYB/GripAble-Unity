@@ -56,6 +56,7 @@ public class PaintGame : MonoBehaviour {
     public static float angleX = 0;
     public static float angleY = 0;
     public static float angleZ = 0;
+    public static float vibrationOnCue = 0;
     public static bool initialize = false;
     public static float climberForceScale = 80f;
     public static float climberForcebias = 0;

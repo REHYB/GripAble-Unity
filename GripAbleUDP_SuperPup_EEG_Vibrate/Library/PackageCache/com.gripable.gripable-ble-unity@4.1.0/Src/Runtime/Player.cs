@@ -202,6 +202,11 @@ namespace Gripable
         {
             if (IsInitialized())
             {
+                GripablePlugin.Player.SetCalibration(
+                new Calibration { Min = 0, Max = 70, Type = MovementType.Grip },
+                new Calibration { Min = 315, Max = 60, Type = MovementType.Roll },
+                new Calibration { Min = 345, Max = 40, Type = MovementType.Pitch },
+                new Calibration { Min = 310, Max = 30, Type = MovementType.Yaw }, 0.4f);
                 return _deviceGateway.Connect();
             }
             else
