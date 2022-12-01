@@ -43,7 +43,7 @@ public class PaintGame : MonoBehaviour {
     public static string instruction2 = "";
     public static int reps = 0;
     public static float climberForce = 0;
-    public static string macAddress = "DB:1C:18:62:82:9C"; //"E1:39:99:37:A0:CA"; //Verity?: "E1:39:99:37:A0:CA";//Aaron masking tape: "CF:C8:03:D7:2E:FC"; //Chiara "D9:EC:A0:72:0B:2C"; //CF:C8:03:D7:2E:FC";//:Aaron Blue1: DB:1C:18:62:82:9C Aaron1: CA:49:AB:EF:4A:17 Leeza1: D5:B2:37:4A:C8:5E Leeza2-thisOne: F9:05:C0:6D:B2:C2 Satoshi1: C9:D9:D6:CA:33:CB Satoshi2: D6:7E:B6:F8:F4:8D Satoshi3 CHIARA: F1:FD:7F:8C:B2:61 Juliette1: CF:C8:03:D7:2E:FC (Blue device at Imperial) //FF:30:2F:47:20:6E
+    public static string macAddress = "CF:C8:03:D7:2E:FC"; //Verity Evelina: "DB:1C:18:62:82:9C"; "E1:39:99:37:A0:CA"; //Verity?: "E1:39:99:37:A0:CA";//Aaron masking tape: "CF:C8:03:D7:2E:FC"; //Chiara "D9:EC:A0:72:0B:2C"; //CF:C8:03:D7:2E:FC";//:Aaron Blue1: DB:1C:18:62:82:9C Aaron1: CA:49:AB:EF:4A:17 Leeza1: D5:B2:37:4A:C8:5E Leeza2-thisOne: F9:05:C0:6D:B2:C2 Satoshi1: C9:D9:D6:CA:33:CB Satoshi2: D6:7E:B6:F8:F4:8D Satoshi3 CHIARA: F1:FD:7F:8C:B2:61 Juliette1: CF:C8:03:D7:2E:FC (Blue device at Imperial) //FF:30:2F:47:20:6E
     public static int maxReps = 36;
     public static bool applyUserID = false;
     public static string userID = "notAvailable";

@@ -1097,4 +1097,4 @@ ScriptsOnlyBuild:
   platform: 13
   scenePathNames:
   - Assets/Scenes/SampleScene.unity
-  playerPath: /Users/ayurkewi/UnityGames/GripAble-Unity/GripAbleUDP_SuperPup_EEG/SuperPupEEGTestVib.apk
+  playerPath: /Users/ayurkewi/UnityGames/GripAble-Unity/GripAbleUDP_SuperPup_EEG/SPEEGVib11.apk
